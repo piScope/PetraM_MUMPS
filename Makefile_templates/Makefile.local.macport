@@ -1,0 +1,50 @@
+PYTHON   = python2.7
+
+MFEM     = $(HOME)/src/mfem-3.3
+MFEMINCDIR  = $(MFEM)
+MFEMLNKDIR  = $(MFEM)
+
+MFEMSER  = $(HOME)/src/mfem-3.3ser
+MFEMSERINCDIR  = $(MFEMSER)
+MFEMSERLNKDIR  = $(MFEMSER)
+
+
+# METIS4
+METIS4   = $(HOME)/src/metis-4.0
+METIS4LIBA   = $(HOME)/src/metis-4.0/libmetis.a
+
+# HYPRE
+HYPRE 	 = $(HOME)/src/hypre-2.11.0
+HYPREINCDIR = $(HYPRE)/src/hypre/include
+HYPRELNKDIR = $(HYPRE)/src/hypre/lib
+
+#MUMPS
+MUMPS = $(HOME)/src/MUMPS_5.0.1
+MUMPSLIBDIR = /opt/local/lib
+MUMPSINCDIR1 = $(MUMPS)/include
+MUMPSINCDIR2 = $(MUMPS)/src
+
+#PORD
+PORD    = /usr/local/lib/
+PORDLNKDIR    = $(PORD)
+
+#SCOTCH
+SCHOTCHLNKDIR =
+
+#PARMETIS
+METIS5 = /opt/local/lib/
+PARMETIS   = /opt/local/lib/
+PARMETISLNKDIR   = $(PARMETIS)
+
+PORDLNKDIR = /opt/local/lib/
+
+SCALAPACKLIB = scalapack
+SCALAPACKLNKDIR =
+
+NOCOMPACTUNWIND = -Wl,-no_compact_unwind
+
+#MPI
+MPICHINCDIR    = /opt/local/include/mpich-mp
+MPICHLNKDIR    = /opt/local/lib/mpich-mp
+MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print mpi4py.get_include()")
+

@@ -1,0 +1,35 @@
+#
+#  This file is part of MUMPS 5.0.1, released
+#  on Thu Jul 23 17:08:29 UTC 2015
+#
+MUMPSDIR = /Users/shiraiwa/src/MUMPS_5.0.1
+MUMPSINC =  -I. -I$(MUMPSDIR)/include -I$(MUMPSDIR)/src
+libdir = /opt/local/lib
+
+OUTC    = -o 
+OPTF    = -O  -DALLOW_NON_INIT
+OPTL    = -O 
+OPTC    = -O
+CC = mpicc
+FC = mpifort
+FL = mpifort
+
+## setting for SWIG
+IFILE = $(wildcard *.i)
+ALLCXX = $(IFILE:.i=xx_wrap.cxx)
+SWIG     = swig
+SWIGFLAG = -Wall  -c++ -python
+MPIINC   = -I/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/mpi4py/include 
+
+echo $(ALLCXX)
+all: $(ALLCXX) mumps_sovle.a
+default:      all
+%.a: %.o
+	ar cruv $@ $^
+	ranlib $@	
+%.o: %.c
+	$(CC) -fPIC $(OPTC) $(INCS) $(CDEFS) $(MUMPSINC) -c $@ $(OUTC)$^
+%._wrap.cxx: %.i
+	$(SWIG) $(SWIGFLAG) $(MPIINC) $(MUMPSINC) 	
+clean:
+	rm c_example_lib.o  c_example_lib.a
