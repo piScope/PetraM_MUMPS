@@ -1,4 +1,4 @@
-##PetraM-MUMPS
+## PetraM-MUMPS
 
 MUMPS interface for Petra-M
 
