@@ -1,0 +1,21 @@
+INSTALL/BUILD
+
+   Note that 1) and 2) are common for all PetraM module installation
+   
+   1) decide install destination and set enviromental variables, PetraM
+   
+      example)
+          export PetraM=/usr/local/PetraM  (public place)
+          export PetraM=/Users/shiraiwa/sandbox_root/PetraM (user directory)
+
+   2) add PYTHONPATH
+          export PYTHONPATH=$PetraM/lib/python2.7/site-packages:$PYTHONPATH
+
+   3) make .a files
+      make
+
+   4) make .so files from .a
+      make so
+
+   5) install
+      make install

@@ -11,10 +11,12 @@ CC=$(shell which gcc)
 SWIG=$(shell which swig)
 SWIGFLAG = -Wall -c++ -python
 
-PREFIX?=/usr/local/
-INSTALLDIR=$(PREFIX)/PetraM
-BINDIR=$(PETRAMDIR)/bin
-LIBDIR=$(PETRAMDIR))/lib
+INSTALLDIR=$(shell echo $(PetraM))
+ifeq ($(INSTALLDIR),)
+   INSTALLDIR := /usr/local/PetraM
+endif
+BINDIR=$(INSTALLDIR)/bin
+LIBDIR=$(INSTALLDIR)/lib
 
 
 WHOLE_ARCHIVE = --whole-archive
@@ -119,22 +121,23 @@ DMUMPSLIBA = $(MUMPSLIBDIR)/libdmumps.a
 
 export 
 
-all:  cext
-.PHONEY:all
+default: cext so
+.PHONEY:all install
 
 ##
 build/setup_local.py: Makefile.local
 	mkdir -p build
 	$(PYTHON) scripts/write_setup_local.py
 cext: build/setup_local.py
-	echo $(HYPREINC)
 	$(MAKE) -C petram/ext cext
 cxx: build/setup_local.py
 	$(MAKE) -C petram/ext cxx
+so:
+	$(PYTHON) setup.py build
 install:
 	mkdir -p $(INSTALLDIR)
 	for dir in $(INSTALLDIRS); do mkdir -p $(INSTALLDIR)/$$dir; done
-
+	$(PYTHON) setup.py install --prefix=$(INSTALLDIR)	
 clean:
 	$(MAKE) -C petram/ext clean
 	rm -rf build/*
