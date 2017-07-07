@@ -11,3 +11,4 @@ dist
 petram/trash
 test
 Makefile.local
+setup.py
