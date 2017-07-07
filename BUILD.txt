@@ -18,5 +18,7 @@ INSTALL/BUILD
    4) make .a files and .so file
       make
 
+      note that you may need to link manually by using ifort (intel compiler)
+
    5) install
       make install
