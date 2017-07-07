@@ -11,11 +11,12 @@ INSTALL/BUILD
    2) add PYTHONPATH
           export PYTHONPATH=$PetraM/lib/python2.7/site-packages:$PYTHONPATH
 
-   3) make .a files
-      make
+   3) edit setup.py file (NOT EASY!!!)
+         start from a sample in setup_templates, edit it according to your
+         enviroment.
 
-   4) make .so files from .a
-      make so
+   4) make .a files and .so file
+      make
 
    5) install
       make install
