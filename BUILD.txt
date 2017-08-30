@@ -11,9 +11,18 @@ INSTALL/BUILD
    2) add PYTHONPATH
           export PYTHONPATH=$PetraM/lib/python2.7/site-packages:$PYTHONPATH
 
-   3) edit setup.py file (NOT EASY!!!)
+   3) prepare Makefile.local and setup.py
+   
+      Makefile.local
+         start from a sample in Makefile_templates, edit it according to your
+	 enviroment.
+	 Makefile.local is used mainly specify the library locations and
+	 MUMPS source code.
+	 
+      edit setup.py file (NOT EASY!!!)
          start from a sample in setup_templates, edit it according to your
          enviroment.
+	 setup_default.py may work.
 
    4) make .a files and .so file
       make

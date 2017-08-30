@@ -1,1 +1,11 @@
+#
 # mumps_solve
+#
+an small wrapper to use MUMPSe
+
+#
+# hypre_to_mumps
+#
+hypre_to_mumps is retired in Aug. 2017. It is not built anymore
+in a regular build process. Source code is left here for future
+reference

@@ -2,14 +2,13 @@
 ##
 ##   default variable setting
 ##
-DIRS=etc lib bin sbin share
-
 MAKE=$(shell which make)
 PYTHON=$(shell which python)
 PYTHONCONFIG=$(shell which python-config)
 CC=$(shell which gcc)
 SWIG=$(shell which swig)
 SWIGFLAG = -Wall -c++ -python
+UNAME := $(shell uname)
 
 INSTALLDIR=$(shell echo $(PetraM))
 ifeq ($(INSTALLDIR),)
@@ -18,106 +17,120 @@ endif
 BINDIR=$(INSTALLDIR)/bin
 LIBDIR=$(INSTALLDIR)/lib
 
-
-WHOLE_ARCHIVE = --whole-archive
-NO_WHOLE_ARCHIVE = --no-whole-archive
-
-MFEM=/usr/local/mfem-3.3
-MFEMLIB = mfem
-MFEMINCDIR = $(MFEM)
-MFEMLNKDIR = $(MFEM)
-
-MFEMSER=/usr/local/mfem-3.3ser
-MFEMSERLIB = mfem
-MFEMSERINCDIR = $(MFEMSER)
-MFEMSERLNKDIR = $(MFEMSER)
-
-HYPRE=/usr/local/hypre-2.11.0
-HYPRELIB = HYPRE
-
-METIS5=/usr/local/
-METIS5LIB = metis
-METIS5LNKDIR = $(METIS5)/lib/
-
-PORD = /usr/local/lib
-PORDLIB = pord
-PORDLNKDIR = $(PORD)
-
-SCOTCH = /usr/local/lib
-SCOTCHLIB = 
-SCOTCHLNKDIR =
-#SCOTCHINCDIR =
-
-PARMETIS = /usr/local/
-PARMETISLIB = parmetis
-PARMETISLNKDIR = $(PARMETIS)/lib
-#PARMETISINCLIB = 
-
-#
-LAPACK = /usr/local/
-LAPACKLNKDIR = $(LAPACK)/lib
-LAPACKLIB = lapack
-
-#SCALAPACK (for mumps_solve)
-SCALAPACK=/usr/local/lib
-SCALAPACKLIB = scalapack
-
-# HYPRE
-HYPRE 	 = /usr/local/hypre-2.11.0
-HYPREINCDIR = $(HYPRE)/include
-HYPRELNKDIR = $(HYPRE)/lib
-
-#BLAS (for mumps_solve)
-BLAS=/usr/local/lib
-BLASLIB = blas
-BLASLIBA = 
-BLASDIR = $(BLAS)
-
-#PTHREAD (for mumps_solve)
-PTHREAD=/usr/local/lib
-PTHREADLIB = pthread
-
-#MPI
-MPIINCDIR= /opt/local/include/mpich-mp         #mpi.h
-MPICHINCDIR    = /opt/local/include/mpich-mp
-MPICHLNKDIR    = /opt/local/lib/mpich-mp
+### compilers
 MPILIB = mpi
 MPICC = mpicc
 MPICXX = mpicxx
 MPIFC = mpifort
 MPIFL = mpifort
-MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print mpi4py.get_include()")
 
-#numpy
+### library locations
+USRLOCAL = /usr/local
+
+MUMPS = $(USRLOCAL)
+PORD = $(USRLOCAL)
+
+### For the followin libraries,  if variabls are set empty,
+### it is not used in build process
+METIS5 = $(USRLOCAL)
+SCOTCH = $(USRLOCAL)
+PARMETIS = $(USRLOCAL)
+LAPACK = $(USRLOCAL)
+SCALAPACK = $(USRLOCAL)
+BLAS = $(USRLOCAL)
+
+#MPI
+MPIINCDIR= /opt/local/include/mpich-mp         #mpi.h
+MPICHINCDIR    = /opt/local/include/mpich-mp
+MPICHLNKDIR    = /opt/local/lib/mpich-mp
+
+
+MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print mpi4py.get_include()")
 NUMPYINCDIR = $(shell $(PYTHON) -c "import numpy;print numpy.get_include()")
 
-MUMPS = /usr/local/include
-MUMPSLIBDIR = /usr/local/lib
-MUMPSINCDIR1 = $(MUMPS)/include
-MUMPSINCDIR2 = $(MUMPS)/src
 
 OUTC    = -o 
 OPTF    = -O  -DALLOW_NON_INIT
 OPTL    = -O 
 OPTC    = -O
-NOCOMPACTUNWIND = 
 
 # MKL
-MKL = 
+MKL =
+
+#
+#  these are to absorb the difference between linux and macOS
+#
+# no-compact-unwind
+NOCOMPACTUNWIND ?=
+ifeq ($(UNAME), Darwin)
+   NOCOMPACTUNWIND = -Wl,-no_compact_unwind
+endif
+
+WHOLE_ARCHIVE = --whole-archive
+NO_WHOLE_ARCHIVE = --no-whole-archive
+ifeq ($(UNAME), Darwin)
+   WHOLE_ARCHIVE = 
+   NO_WHOLE_ARCHIVE =
+endif
+
 include ./Makefile.local
 
-MFEMINC  = -I$(MFEMINCDIR)
-MFEMSERINC  = -I$(MFEMSERINCDIR)
-HYPREINC = -I$(HYPREINCDIR)
-HYPRELNK = -L$(HYPRELNKDIR) -l$(HYPRELIB)
-MPIINC  = -I$(MPIINCDIR)
-MPI4PYINC  = -I$(MPI4PYINCDIR)
-MUMPSINC = -I$(MUMPSINCDIR1) -I$(MUMPSINCDIR2)
+SCOTCHLIB = 
+ifneq ($(SCOTCH), "")
+   SCOTCHLIB = scotch
+   SCOTCHLNKDIR = $(SCOTCH)/lib
+   SCOTCHINCDIR = $(SCOTCH)/include
+endif
+
+PARMETISLIB = 
+ifneq ($(PARMETIS), "")
+   PARMETISLIB = parmetis
+   PARMETISLNKDIR = $(PARMETIS)/lib
+endif
+
+METIS5LIB =
+ifneq ($(METIS5), "")
+   METIS5LIB = metis
+   METIS5LNKDIR = $(METIS5)/lib/
+endif
+
+LAPACKLIB = 
+ifneq ($(LAPACK), "")
+   LAPACKLIB = lapack
+   LAPACKLNKDIR = $(LAPACK)/lib
+endif
+
+BLASLIB = 
+ifneq ($(BLAS), "")
+   BLASLIB = blas
+   BLASLNKDIR=$(BLAS)/lib
+   BLASINCDIR=$(BLAS)/include
+endif
+
+SCALAPACKLIB =
+ifneq ($(SCALAPACK), "")
+   SCALAPACKLIB = scalapack
+   SCALAPACKLNKDIR=$(SCALAPACK)/lib
+endif
+
+PORDLIB = pord
+PORDLNKDIR = $(PORD)/lib
+
+
+MUMPSLIBDIR =  $(MUMPS)/lib
+MUMPSINCDIR = $(MUMPS)/include
+MUMPSSRCDIR = $(MUMPS)/src
+MUMPSINC = -I$(MUMPSINCDIR) -I$(MUMPSSRCDIR)
+LIBPORDA = $(MUMPSLIBDIR)/libpord.a
 MUMPSCOMMONLIBA = $(MUMPSLIBDIR)/libmumps_common.a
 ZMUMPSLIBA = $(MUMPSLIBDIR)/libzmumps.a
 SMUMPSLIBA = $(MUMPSLIBDIR)/libsmumps.a
 CMUMPSLIBA = $(MUMPSLIBDIR)/libcmumps.a
 DMUMPSLIBA = $(MUMPSLIBDIR)/libdmumps.a
+
+MPIINC  = -I$(MPIINCDIR)
+MPI4PYINC  = -I$(MPI4PYINCDIR)
+
 
 export 
 
