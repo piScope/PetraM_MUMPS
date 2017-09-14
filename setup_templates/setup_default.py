@@ -38,6 +38,7 @@ mumps_link_args =  [libporda, mumpscommonliba, dmumpsliba, smumpsliba, cmumpslib
 
 include_dirs = [mpichincdir, numpyincdir,
                 mpi4pyincdir, mumpsincdir, mumpssrcdir]
+include_dirs = [x for x in include_dirs if len(x) > 0]
 
 lib_list = ["pord", "parmetis", "metis5", "scalapack",  "blas"]
 library_dirs = []
@@ -48,7 +49,7 @@ for lib in lib_list:
         library_dirs.append(eval(lib+ 'lnkdir'))
         libraries.append(eval(lib+'lib'))
 library_dirs.append(mpichlnkdir)
-libraries.append("mpi")
+if mpilib != "": libraries.append("mpi")
     
 ext_modules = []
 for kk, name in enumerate(modules):
@@ -58,9 +59,9 @@ for kk, name in enumerate(modules):
        extra_link_args = [sdir + name+'.a']
 
    if whole_archive != '':
-       extra_link_args = ['-Wl', whole_archive] +  extra_link_args + [no_whole_archive]
+       extra_link_args = ['-Wl,'+ whole_archive] +  extra_link_args + ['-Wl,'+no_whole_archive]
        extra_link_args =  [x for x in extra_link_args if len(x) != 0]   
-       extra_link_args =  [','.join(extra_text)]
+       #extra_link_args =  [','.join(extra_text)]
    if mkl != '':
        extra_link_args =  ['-shared-intel', mkl] + extra_link_args
    if nocompactunwind != '':        
@@ -73,6 +74,7 @@ for kk, name in enumerate(modules):
                         extra_link_args = extra_link_args,
                         include_dirs = include_dirs,
                         library_dirs = library_dirs,
+                        runtime_library_dirs = library_dirs,
                         libraries = libraries ))
 
 
