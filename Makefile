@@ -3,10 +3,10 @@
 ##   default variable setting
 ##
 MAKE=$(shell which make)
-PYTHON=$(shell which python)
-PYTHONCONFIG=$(shell which python-config)
-CC=$(shell which gcc)
-SWIG=$(shell which swig)
+PYTHON ?= $(shell which python)
+PYTHONCONFIG ?= $(shell which python-config)
+CC ?= $(shell which gcc)
+SWIG ?= $(shell which swig)
 SWIGFLAG = -Wall -c++ -python
 UNAME := $(shell uname)
 
@@ -19,43 +19,43 @@ LIBDIR=$(INSTALLDIR)/lib
 
 ### compilers
 MPILIB = mpi
-MPICC = mpicc
-MPICXX = mpicxx
-MPIFC = mpifort
-MPIFL = mpifort
+MPICC ?= mpicc
+MPICXX ?= mpicxx
+MPIFC ?= mpifort
+MPIFL ?= mpifort
 
 ### library locations
-USRLOCAL = /usr/local
+USRLOCAL ?= /usr/local
 
-MUMPS = $(USRLOCAL)
-PORD = $(USRLOCAL)
+MUMPS ?= $(USRLOCAL)
+PORD ?= $(USRLOCAL)
 
 ### For the followin libraries,  if variabls are set empty,
 ### it is not used in build process
-METIS5 = $(USRLOCAL)
-SCOTCH = $(USRLOCAL)
-PARMETIS = $(USRLOCAL)
-LAPACK = $(USRLOCAL)
-SCALAPACK = $(USRLOCAL)
-BLAS = $(USRLOCAL)
+METIS5 ?= $(USRLOCAL)
+SCOTCH ?= $(USRLOCAL)
+PARMETIS ?= $(USRLOCAL)
+LAPACK ?= $(USRLOCAL)
+SCALAPACK ?= $(USRLOCAL)
+BLAS ?= $(USRLOCAL)
 
 #MPI
-MPIINCDIR= /opt/local/include/mpich-mp         #mpi.h
-MPICHINCDIR    = /opt/local/include/mpich-mp
-MPICHLNKDIR    = /opt/local/lib/mpich-mp
+MPIINCDIR ?= /opt/local/include/mpich-mp         #mpi.h
+MPICHINCDIR ?= /opt/local/include/mpich-mp
+MPICHLNKDIR ?= /opt/local/lib/mpich-mp
 
 
 MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print mpi4py.get_include()")
 NUMPYINCDIR = $(shell $(PYTHON) -c "import numpy;print numpy.get_include()")
 
 
-OUTC    = -o 
-OPTF    = -O  -DALLOW_NON_INIT
-OPTL    = -O 
-OPTC    = -O
+OUTC    ?= -o 
+OPTF    ?= -O  -DALLOW_NON_INIT
+OPTL    ?= -O 
+OPTC    ?= -O
 
 # MKL
-MKL =
+MKL ?=
 
 #
 #  these are to absorb the difference between linux and macOS
