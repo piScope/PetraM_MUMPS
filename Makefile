@@ -18,7 +18,7 @@ BINDIR=$(INSTALLDIR)/bin
 LIBDIR=$(INSTALLDIR)/lib
 
 ### compilers
-MPILIB = mpi
+MPILIB ?= mpi
 MPICC ?= mpicc
 MPICXX ?= mpicxx
 MPIFC ?= mpifort
