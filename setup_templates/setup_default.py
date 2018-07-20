@@ -49,7 +49,7 @@ for lib in lib_list:
         library_dirs.append(eval(lib+ 'lnkdir'))
         libraries.append(eval(lib+'lib'))
 library_dirs.append(mpichlnkdir)
-if mpilib != "": libraries.append("mpi")
+if mpilib != "": libraries.append(mpilib.lower())
     
 ext_modules = []
 for kk, name in enumerate(modules):
