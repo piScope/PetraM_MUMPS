@@ -48,6 +48,8 @@ MPICHLNKDIR ?= /opt/local/lib/mpich-mp
 MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print mpi4py.get_include()")
 NUMPYINCDIR = $(shell $(PYTHON) -c "import numpy;print numpy.get_include()")
 
+#OMP
+OMPFLAG ?= ""   # (gcc) "-fopenmp" (intel compiler) "-qopenmp"
 
 OUTC    ?= -o 
 OPTF    ?= -O  -DALLOW_NON_INIT

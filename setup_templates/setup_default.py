@@ -66,7 +66,9 @@ for kk, name in enumerate(modules):
        extra_link_args =  ['-shared-intel', mkl] + extra_link_args
    if nocompactunwind != '':        
        extra_link_args.extend([nocompactunwind])
-   extra_link_args =  [x for x in extra_link_args if len(x) != 0]   
+
+   if ompflag != "":
+       extra_link_args =  [ompflag] + [x for x in extra_link_args if len(x) != 0]   
 
    ext_modules.append(Extension(proxy_names[name],
                         sources=sources[name],
