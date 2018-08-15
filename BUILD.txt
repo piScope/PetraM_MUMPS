@@ -27,6 +27,7 @@ INSTALL/BUILD
 	   -DCMAKE_Fortran_COMPILER=mpif90	   
            -DCMAKE_CXX_COMPILER=mpicxx
 	   -DCMAKE_C_COMPILER=mpicc
+  	   -DOpenMP_LINK_FLAG=-fopenmp
       make VERBOSE=1
       make install
 

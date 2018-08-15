@@ -76,8 +76,8 @@ target_link_libraries(mumps_solve
 			    metis
    		            ${LAPACK_FLAGS}			    
 			    ${MPI_C_LIBRARIES} 
-                            ${OpenMP_LINK_FLAG}
-			    ${OpenMP_C_LIBRARIES} )			    
+                            ${OpenMP_LINK_FLAG})
+
 			    
 set_target_properties(mumps_solve PROPERTIES 
                       COMPILE_FLAGS ${CMP_FLAG}
