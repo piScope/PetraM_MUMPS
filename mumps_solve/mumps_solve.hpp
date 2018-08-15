@@ -23,7 +23,7 @@
 /* Call the MUMPS package. */
 
 
-namespace mumps_solve
+namespace libmumps_solve
 {
 //   dmumps
 class DMUMPS
@@ -163,6 +163,6 @@ class CMUMPS
   
 } /* end of namespace */
 
-int example_dist(MPI_Comm comm);
-int example(MPI_Comm comm);
+int libmumps_solve_example_dist(MPI_Comm comm);
+int libmumps_solve_example(MPI_Comm comm);
 

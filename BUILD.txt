@@ -1,33 +1,52 @@
 INSTALL/BUILD
+   0) Before installing, you need to install MUMPS with MPI and OpenMP on.
 
-   Note that 1) and 2) are common for all PetraM module installation
+   1) install libmumps_solove
+
+   mumps_solve is a shared libraery to use MUMPS. It takes all mumps libraries
+   (libxmumps.so, libmumps_common.so and libpord.so) and conceal their symbols.
+   It exposes only symboles defined in mumps_solve itself. This approach is
+   introdued since strumpack uses the same symbols in MUMPS.
+   interface to MUMPS.
    
-   1) decide install destination and set enviromental variables, PetraM
+   1-1)
    
-      example)
-          export PetraM=/usr/local/PetraM  (public place)
-          export PetraM=/Users/shiraiwa/sandbox_root/PetraM (user directory)
+      cd mumps_solve
+      mkdir -p cmubild
+      cd cmbuild
 
-   2) add PYTHONPATH
-          export PYTHONPATH=$PetraM/lib/python2.7/site-packages:$PYTHONPATH
+      ** run cmake .. with options like below
+      
+      cmake .. -DCMAKE_INSTALL_NAME_DIR=${HOME}/sandbox/lib
+           -DCMAKE_INSTALL_PREFIX=${HOME}/sandbox
+	   -DMETIS_LINK_DIR=${HOME}/sandbox/lib
+	   -DPARMETIS_LINK_DIR=${HOME}/sandbox/lib
+	   -DLAPACK_FLAGS="-L/opt/local/lib -lscalapack -llapack -lpthread"
+	   -DMUMPS_INCLUDE_DIR=${HOME}/src/MUMPS_5.1.1/include
+	   -DMUMPS_LINK_DIR=${HOME}/src/MUMPS_5.1.1/lib
+	   -DCMAKE_Fortran_COMPILER=mpif90	   
+           -DCMAKE_CXX_COMPILER=mpicxx
+	   -DCMAKE_C_COMPILER=mpicc
 
-   3) prepare Makefile.local and setup.py
+   2) build mumps_solve wrappwer
+
+      you need to specify the directory of libmumps_solve.so, mumps_c_types.h
+      and mpi.h
+
+
+      make MUMPS_SOLVE_DIR=${HOME}/sandbox/lib
+           MUMPS_INC_DIR=${HOME}/src/MUMPS_5.1.1/include/
+	   MPI_INC_DIR=/opt/local/include/mpich-clang50
+	   MPICXX=mpicxx (optional to set CC)
+	   MPICC=mpicc   (optional to set CXX)
+           MKL=mkl       (optional MKL=mkl, MKL library flag)
+
+      (optional to regenerate wrapper using swig)
+      make cxx MUMPS_INC_DIR=${HOME}/src/MUMPS_5.1.1/include/
    
-      Makefile.local
-         start from a sample in Makefile_templates, edit it according to your
-	 enviroment.
-	 Makefile.local is used mainly specify the library locations and
-	 MUMPS source code.
-	 
-      edit setup.py file (NOT EASY!!!)
-         start from a sample in setup_templates, edit it according to your
-         enviroment.
-	 setup_default.py may work.
+   3) install mumps_solve wrappwer
 
-   4) make .a files and .so file
-      make
+      make install --prefix=${HOME}/sandbox
 
-      note that you may need to link manually by using ifort (intel compiler)
 
-   5) install
-      make install
+

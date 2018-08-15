@@ -12,3 +12,8 @@ petram/trash
 test
 Makefile.local
 setup.py
+mumps_solve/*
+!mumps_solve/CMakeLists.txt
+!mumps_solve/mumps_solve.cpp
+!mumps_solve/mumps_solve.hpp
+!mumps_solve/exported_symbols_list.txt

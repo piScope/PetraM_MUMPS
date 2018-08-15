@@ -292,7 +292,7 @@ def z_to_list(A, l):
 	    1j* z_array_imag_getitem(A, i) for i in range(l)]        
 %}  
 
-%extend mumps_solve::ZMUMPS{
+%extend libmumps_solve::ZMUMPS{
   PyObject * get_real_rhs(void) {
     MUMPS_INT nrhs = self->get_struct()->nrhs;
     MUMPS_INT lrhs = self->get_struct()->lrhs;
@@ -319,7 +319,7 @@ def z_to_list(A, l):
   }
   
 };
-%extend mumps_solve::DMUMPS{
+%extend libmumps_solve::DMUMPS{
   PyObject * get_real_rhs(void) {
     MUMPS_INT nrhs = self->get_struct()->nrhs;
     MUMPS_INT lrhs = self->get_struct()->lrhs;

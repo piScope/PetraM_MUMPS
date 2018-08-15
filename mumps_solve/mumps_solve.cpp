@@ -16,7 +16,7 @@
 
 #define ICNTL(I) icntl[(I)-1] /* macro s.t. indices match documentation */
 
-namespace mumps_solve
+namespace libmumps_solve
 {
 
 //  dmumps
@@ -157,9 +157,9 @@ void CMUMPS::finish()
   distributed sparse left hand side matrix
   dense right hand side matrix
 */
-int example_dist(MPI_Comm comm)
+int libmumps_solve_example_dist(MPI_Comm comm)
 {
-  mumps_solve::DMUMPS s = mumps_solve::DMUMPS(1, 0, comm);  
+  libmumps_solve::DMUMPS s = libmumps_solve::DMUMPS(1, 0, comm);  
 
   MUMPS_INT ierr;
   int       num_procs, myid;
@@ -228,9 +228,9 @@ int example_dist(MPI_Comm comm)
   Solution is [1 2]^T
 */
 
-int example(MPI_Comm comm)
+int libmumps_solve_example(MPI_Comm comm)
 {
-  mumps_solve::DMUMPS s = mumps_solve::DMUMPS(1, 0, comm);  
+  libmumps_solve::DMUMPS s = libmumps_solve::DMUMPS(1, 0, comm);  
 
   MUMPS_INT n = 2;
   MUMPS_INT nz = 2;
