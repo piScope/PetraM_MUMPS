@@ -17,7 +17,11 @@ find_package(ZLIB REQUIRED)
 find_package(MPI  REQUIRED)
 find_package(OpenMP REQUIRED)
 
-set(LINK_FLAGS "-fPIC" ${OpenMP_EXE_LINKER_FLAGS})
+
+if(NOT DEFINED OpenMP_LINK_FLAG)
+    set(OpenMP_LINK_FLAG ${OpenMP_EXE_LINKER_FLAGS})
+endif()
+set(LINK_FLAGS "-fPIC" ${OpenMP_LINK_FLAG})
 
 if (APPLE)
     set(SHARED_SC_COMPILE_FLAGS " -fPIC ")
@@ -71,7 +75,7 @@ target_link_libraries(mumps_solve
 			    metis
    		            ${LAPACK_FLAGS}			    
 			    ${MPI_C_LIBRARIES} 
-                            ${OpenMP_CXX_FLAGS}
+                            ${OpenMP_LINK_FLAG}
 			    ${OpenMP_C_LIBRARIES} )			    
 			    
 set_target_properties(mumps_solve PROPERTIES 
