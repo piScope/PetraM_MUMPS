@@ -11,7 +11,6 @@ dist
 petram/trash
 test
 Makefile.local
-setup.py
 mumps_solve/*
 !mumps_solve/CMakeLists.txt
 !mumps_solve/mumps_solve.cpp
