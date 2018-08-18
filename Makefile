@@ -8,12 +8,10 @@ PYTHONCONFIG ?= $(shell which python-config)
 CC ?= $(shell which gcc)
 UNAME := $(shell uname)
 
-INSTALLDIR=$(shell echo $(PetraM))
-ifeq ($(INSTALLDIR),)
-   INSTALLDIR := /usr/local/PetraM
+PREFIX=$(shell echo $(PetraM))
+ifeq ($(PREFIX),)
+   PREFXI := /usr/local/PetraM
 endif
-BINDIR=$(INSTALLDIR)/bin
-LIBDIR=$(INSTALLDIR)/lib
 
 ### compilers
 MPILIB ?= mpi
@@ -31,9 +29,9 @@ ifeq ($(UNAME), Darwin)
    NOCOMPACTUNWIND = -Wl,-no_compact_unwind
 endif
 
-MPI_INC_DIR ?= $(INSTALLDIR)/include
-MUMPS_SOLVE_DIR ?= $(INSTALLDIR)/lib
-MUMPS_INC_DIR   ?= $(INSTALLDIR)/include
+MPI_INC_DIR ?= $(PREFIX)/include
+MUMPS_SOLVE_DIR ?= $(PREFIX)/lib
+MUMPS_INC_DIR   ?= $(PREFIX)/include
 MKL ?=
 CC=${MPICC}
 CXX=${MPICXX}
@@ -49,9 +47,9 @@ cxx:
 so:
 	$(PYTHON) setup.py build 
 install:
-	mkdir -p $(INSTALLDIR)
-	for dir in $(INSTALLDIRS); do mkdir -p $(INSTALLDIR)/$$dir; done
-	$(PYTHON) setup.py install --prefix=$(INSTALLDIR)	
+	mkdir -p $(PREFIX)
+	for dir in $(PREFIX); do mkdir -p $(PREFIX)/$$dir; done
+	$(PYTHON) setup.py install --prefix=$(PREFIX)
 clean:
 	$(MAKE) -C petram/ext clean
 	rm -rf build/*
