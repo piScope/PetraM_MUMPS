@@ -16,3 +16,4 @@ mumps_solve/*
 !mumps_solve/mumps_solve.cpp
 !mumps_solve/mumps_solve.hpp
 !mumps_solve/exported_symbols_list.txt
+!mumps_solve/exported_version_script.txt
