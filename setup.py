@@ -116,5 +116,5 @@ setup (name = 'PetraM_MUMPS',
        keywords='MFEM physics',
        packages=find_packages(),
        ext_modules = ext_modules,
-       py_modules = modules,
+#       py_modules = modules,
 )
