@@ -15,12 +15,17 @@ enable_language(Fortran)
 
 find_package(ZLIB REQUIRED)
 find_package(MPI  REQUIRED)
-find_package(OpenMP REQUIRED)
+find_package(OpenMP)
 
-
-if(NOT DEFINED OpenMP_LINK_FLAG)
-    set(OpenMP_LINK_FLAG ${OpenMP_EXE_LINKER_FLAGS})
+if (OPENMP_FOUND)
+    if(NOT DEFINED OpenMP_LINK_FLAG)
+        set(OpenMP_LINK_FLAG ${OpenMP_EXE_LINKER_FLAGS})
+    endif()
+else()
+    set(OpenMP_LINK_FLAG "")
+    set{OpenMP_CXX_FLAGS "")
 endif()
+
 set(FPIC " -fPIC ")
 set(LINK_FLAGS ${FPIC})
 
