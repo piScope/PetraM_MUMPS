@@ -171,7 +171,7 @@ int libmumps_solve_example_dist(MPI_Comm comm)
   MUMPS_INT nz = 2*num_procs;    // non zero elements
   MUMPS_INT irn[] = {2*myid+1,2*myid+2};
   MUMPS_INT jcn[] = {2*myid+1,2*myid+2};
-  double a[] = {2*myid+1,2*myid+2};
+  double a[] = {2*myid+1.,2*myid+2.};
   
   /* Define rhs as all one vector */  
   double *rhs  = (double*) malloc(sizeof(double)* 2*num_procs);
