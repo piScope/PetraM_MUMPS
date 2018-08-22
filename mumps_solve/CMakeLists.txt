@@ -23,7 +23,7 @@ if (OPENMP_FOUND)
     endif()
 else()
     set(OpenMP_LINK_FLAG "")
-    set{OpenMP_CXX_FLAGS "")
+    set(OpenMP_CXX_FLAGS "")
 endif()
 
 set(FPIC " -fPIC ")
