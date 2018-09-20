@@ -48,7 +48,7 @@ mpi_inc_dir = os.getenv("MPI_INC_DIR")
 
 include_dirs = [mumps_solve_incdir, numpyincdir, mpi4pyincdir,
                 mumps_inc_dir, mpi_inc_dir]
-include_dirs = [x for x include_dirs if x.strip() != '']
+include_dirs = [x for x in include_dirs if x.strip() != '']
 
 #lib_list = ["pord", "parmetis", "metis5", "scalapack",  "blas"]
 lib_list = []
