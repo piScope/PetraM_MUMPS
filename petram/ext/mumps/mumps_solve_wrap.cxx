@@ -4556,6 +4556,130 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DMUMPS_get_info(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DMUMPS_get_info",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__DMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DMUMPS_get_info" "', argument " "1"" of type '" "libmumps_solve::DMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::DMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DMUMPS_get_info" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (int)(arg1)->get_info(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DMUMPS_get_infog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DMUMPS_get_infog",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__DMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DMUMPS_get_infog" "', argument " "1"" of type '" "libmumps_solve::DMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::DMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DMUMPS_get_infog" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (int)(arg1)->get_infog(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DMUMPS_get_rinfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DMUMPS_get_rinfo",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__DMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DMUMPS_get_rinfo" "', argument " "1"" of type '" "libmumps_solve::DMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::DMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DMUMPS_get_rinfo" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (double)(arg1)->get_rinfo(arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DMUMPS_get_rinfog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DMUMPS_get_rinfog",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__DMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DMUMPS_get_rinfog" "', argument " "1"" of type '" "libmumps_solve::DMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::DMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DMUMPS_get_rinfog" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (double)(arg1)->get_rinfog(arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DMUMPS_get_real_rhs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
@@ -5413,6 +5537,130 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ZMUMPS_get_info(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::ZMUMPS *arg1 = (libmumps_solve::ZMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ZMUMPS_get_info",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__ZMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZMUMPS_get_info" "', argument " "1"" of type '" "libmumps_solve::ZMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::ZMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ZMUMPS_get_info" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (int)(arg1)->get_info(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZMUMPS_get_infog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::ZMUMPS *arg1 = (libmumps_solve::ZMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ZMUMPS_get_infog",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__ZMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZMUMPS_get_infog" "', argument " "1"" of type '" "libmumps_solve::ZMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::ZMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ZMUMPS_get_infog" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (int)(arg1)->get_infog(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZMUMPS_get_rinfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::ZMUMPS *arg1 = (libmumps_solve::ZMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ZMUMPS_get_rinfo",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__ZMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZMUMPS_get_rinfo" "', argument " "1"" of type '" "libmumps_solve::ZMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::ZMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ZMUMPS_get_rinfo" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (double)(arg1)->get_rinfo(arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZMUMPS_get_rinfog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::ZMUMPS *arg1 = (libmumps_solve::ZMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ZMUMPS_get_rinfog",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__ZMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZMUMPS_get_rinfog" "', argument " "1"" of type '" "libmumps_solve::ZMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::ZMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ZMUMPS_get_rinfog" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (double)(arg1)->get_rinfog(arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ZMUMPS_get_real_rhs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libmumps_solve::ZMUMPS *arg1 = (libmumps_solve::ZMUMPS *) 0 ;
@@ -6222,6 +6470,130 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SMUMPS_get_info(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::SMUMPS *arg1 = (libmumps_solve::SMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:SMUMPS_get_info",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__SMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMUMPS_get_info" "', argument " "1"" of type '" "libmumps_solve::SMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::SMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMUMPS_get_info" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (int)(arg1)->get_info(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SMUMPS_get_infog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::SMUMPS *arg1 = (libmumps_solve::SMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:SMUMPS_get_infog",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__SMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMUMPS_get_infog" "', argument " "1"" of type '" "libmumps_solve::SMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::SMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMUMPS_get_infog" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (int)(arg1)->get_infog(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SMUMPS_get_rinfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::SMUMPS *arg1 = (libmumps_solve::SMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:SMUMPS_get_rinfo",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__SMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMUMPS_get_rinfo" "', argument " "1"" of type '" "libmumps_solve::SMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::SMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMUMPS_get_rinfo" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (float)(arg1)->get_rinfo(arg2);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SMUMPS_get_rinfog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::SMUMPS *arg1 = (libmumps_solve::SMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:SMUMPS_get_rinfog",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__SMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMUMPS_get_rinfog" "', argument " "1"" of type '" "libmumps_solve::SMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::SMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SMUMPS_get_rinfog" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (float)(arg1)->get_rinfog(arg2);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *SMUMPS_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
@@ -6987,6 +7359,130 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_CMUMPS_get_info(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::CMUMPS *arg1 = (libmumps_solve::CMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:CMUMPS_get_info",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__CMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CMUMPS_get_info" "', argument " "1"" of type '" "libmumps_solve::CMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::CMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CMUMPS_get_info" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (int)(arg1)->get_info(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_CMUMPS_get_infog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::CMUMPS *arg1 = (libmumps_solve::CMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  int result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:CMUMPS_get_infog",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__CMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CMUMPS_get_infog" "', argument " "1"" of type '" "libmumps_solve::CMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::CMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CMUMPS_get_infog" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (int)(arg1)->get_infog(arg2);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_CMUMPS_get_rinfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::CMUMPS *arg1 = (libmumps_solve::CMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:CMUMPS_get_rinfo",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__CMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CMUMPS_get_rinfo" "', argument " "1"" of type '" "libmumps_solve::CMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::CMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CMUMPS_get_rinfo" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (float)(arg1)->get_rinfo(arg2);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_CMUMPS_get_rinfog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::CMUMPS *arg1 = (libmumps_solve::CMUMPS *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  float result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:CMUMPS_get_rinfog",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__CMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CMUMPS_get_rinfog" "', argument " "1"" of type '" "libmumps_solve::CMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::CMUMPS * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "CMUMPS_get_rinfog" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (float)(arg1)->get_rinfog(arg2);
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *CMUMPS_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
@@ -7597,6 +8093,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DMUMPS_get_rhs", _wrap_DMUMPS_get_rhs, METH_VARARGS, NULL},
 	 { (char *)"DMUMPS_set_ictrl", _wrap_DMUMPS_set_ictrl, METH_VARARGS, NULL},
 	 { (char *)"DMUMPS_get_struct", _wrap_DMUMPS_get_struct, METH_VARARGS, NULL},
+	 { (char *)"DMUMPS_get_info", _wrap_DMUMPS_get_info, METH_VARARGS, NULL},
+	 { (char *)"DMUMPS_get_infog", _wrap_DMUMPS_get_infog, METH_VARARGS, NULL},
+	 { (char *)"DMUMPS_get_rinfo", _wrap_DMUMPS_get_rinfo, METH_VARARGS, NULL},
+	 { (char *)"DMUMPS_get_rinfog", _wrap_DMUMPS_get_rinfog, METH_VARARGS, NULL},
 	 { (char *)"DMUMPS_get_real_rhs", _wrap_DMUMPS_get_real_rhs, METH_VARARGS, NULL},
 	 { (char *)"DMUMPS_swigregister", DMUMPS_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_ZMUMPS", _wrap_new_ZMUMPS, METH_VARARGS, NULL},
@@ -7622,6 +8122,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ZMUMPS_get_rhs", _wrap_ZMUMPS_get_rhs, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_set_ictrl", _wrap_ZMUMPS_set_ictrl, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_get_struct", _wrap_ZMUMPS_get_struct, METH_VARARGS, NULL},
+	 { (char *)"ZMUMPS_get_info", _wrap_ZMUMPS_get_info, METH_VARARGS, NULL},
+	 { (char *)"ZMUMPS_get_infog", _wrap_ZMUMPS_get_infog, METH_VARARGS, NULL},
+	 { (char *)"ZMUMPS_get_rinfo", _wrap_ZMUMPS_get_rinfo, METH_VARARGS, NULL},
+	 { (char *)"ZMUMPS_get_rinfog", _wrap_ZMUMPS_get_rinfog, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_get_real_rhs", _wrap_ZMUMPS_get_real_rhs, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_get_imag_rhs", _wrap_ZMUMPS_get_imag_rhs, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_swigregister", ZMUMPS_swigregister, METH_VARARGS, NULL},
@@ -7646,6 +8150,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SMUMPS_get_rhs", _wrap_SMUMPS_get_rhs, METH_VARARGS, NULL},
 	 { (char *)"SMUMPS_set_ictrl", _wrap_SMUMPS_set_ictrl, METH_VARARGS, NULL},
 	 { (char *)"SMUMPS_get_struct", _wrap_SMUMPS_get_struct, METH_VARARGS, NULL},
+	 { (char *)"SMUMPS_get_info", _wrap_SMUMPS_get_info, METH_VARARGS, NULL},
+	 { (char *)"SMUMPS_get_infog", _wrap_SMUMPS_get_infog, METH_VARARGS, NULL},
+	 { (char *)"SMUMPS_get_rinfo", _wrap_SMUMPS_get_rinfo, METH_VARARGS, NULL},
+	 { (char *)"SMUMPS_get_rinfog", _wrap_SMUMPS_get_rinfog, METH_VARARGS, NULL},
 	 { (char *)"SMUMPS_swigregister", SMUMPS_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_CMUMPS", _wrap_new_CMUMPS, METH_VARARGS, NULL},
 	 { (char *)"delete_CMUMPS", _wrap_delete_CMUMPS, METH_VARARGS, NULL},
@@ -7668,6 +8176,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"CMUMPS_get_rhs", _wrap_CMUMPS_get_rhs, METH_VARARGS, NULL},
 	 { (char *)"CMUMPS_set_ictrl", _wrap_CMUMPS_set_ictrl, METH_VARARGS, NULL},
 	 { (char *)"CMUMPS_get_struct", _wrap_CMUMPS_get_struct, METH_VARARGS, NULL},
+	 { (char *)"CMUMPS_get_info", _wrap_CMUMPS_get_info, METH_VARARGS, NULL},
+	 { (char *)"CMUMPS_get_infog", _wrap_CMUMPS_get_infog, METH_VARARGS, NULL},
+	 { (char *)"CMUMPS_get_rinfo", _wrap_CMUMPS_get_rinfo, METH_VARARGS, NULL},
+	 { (char *)"CMUMPS_get_rinfog", _wrap_CMUMPS_get_rinfog, METH_VARARGS, NULL},
 	 { (char *)"CMUMPS_swigregister", CMUMPS_swigregister, METH_VARARGS, NULL},
 	 { (char *)"libmumps_solve_example_dist", _wrap_libmumps_solve_example_dist, METH_VARARGS, NULL},
 	 { (char *)"libmumps_solve_example", _wrap_libmumps_solve_example, METH_VARARGS, NULL},

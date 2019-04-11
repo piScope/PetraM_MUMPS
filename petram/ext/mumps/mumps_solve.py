@@ -243,6 +243,18 @@ class DMUMPS(_object):
     def get_struct(self):
         return _mumps_solve.DMUMPS_get_struct(self)
 
+    def get_info(self, i):
+        return _mumps_solve.DMUMPS_get_info(self, i)
+
+    def get_infog(self, i):
+        return _mumps_solve.DMUMPS_get_infog(self, i)
+
+    def get_rinfo(self, i):
+        return _mumps_solve.DMUMPS_get_rinfo(self, i)
+
+    def get_rinfog(self, i):
+        return _mumps_solve.DMUMPS_get_rinfog(self, i)
+
     def get_real_rhs(self):
         return _mumps_solve.DMUMPS_get_real_rhs(self)
 DMUMPS_swigregister = _mumps_solve.DMUMPS_swigregister
@@ -327,6 +339,18 @@ class ZMUMPS(_object):
     def get_struct(self):
         return _mumps_solve.ZMUMPS_get_struct(self)
 
+    def get_info(self, i):
+        return _mumps_solve.ZMUMPS_get_info(self, i)
+
+    def get_infog(self, i):
+        return _mumps_solve.ZMUMPS_get_infog(self, i)
+
+    def get_rinfo(self, i):
+        return _mumps_solve.ZMUMPS_get_rinfo(self, i)
+
+    def get_rinfog(self, i):
+        return _mumps_solve.ZMUMPS_get_rinfog(self, i)
+
     def get_real_rhs(self):
         return _mumps_solve.ZMUMPS_get_real_rhs(self)
 
@@ -407,6 +431,18 @@ class SMUMPS(_object):
 
     def get_struct(self):
         return _mumps_solve.SMUMPS_get_struct(self)
+
+    def get_info(self, i):
+        return _mumps_solve.SMUMPS_get_info(self, i)
+
+    def get_infog(self, i):
+        return _mumps_solve.SMUMPS_get_infog(self, i)
+
+    def get_rinfo(self, i):
+        return _mumps_solve.SMUMPS_get_rinfo(self, i)
+
+    def get_rinfog(self, i):
+        return _mumps_solve.SMUMPS_get_rinfog(self, i)
 SMUMPS_swigregister = _mumps_solve.SMUMPS_swigregister
 SMUMPS_swigregister(SMUMPS)
 
@@ -482,6 +518,18 @@ class CMUMPS(_object):
 
     def get_struct(self):
         return _mumps_solve.CMUMPS_get_struct(self)
+
+    def get_info(self, i):
+        return _mumps_solve.CMUMPS_get_info(self, i)
+
+    def get_infog(self, i):
+        return _mumps_solve.CMUMPS_get_infog(self, i)
+
+    def get_rinfo(self, i):
+        return _mumps_solve.CMUMPS_get_rinfo(self, i)
+
+    def get_rinfog(self, i):
+        return _mumps_solve.CMUMPS_get_rinfog(self, i)
 CMUMPS_swigregister = _mumps_solve.CMUMPS_swigregister
 CMUMPS_swigregister(CMUMPS)
 

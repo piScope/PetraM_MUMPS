@@ -10,7 +10,7 @@ UNAME := $(shell uname)
 
 PREFIX=$(shell echo $(PetraM))
 ifeq ($(PREFIX),)
-   PREFXI := /usr/local/PetraM
+   PREFIX := /usr/local/PetraM
 endif
 
 ### compilers

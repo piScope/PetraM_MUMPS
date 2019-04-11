@@ -16,8 +16,12 @@
 #define JOB_1_2_3 6
 #define USE_COMM_WORLD -987654
 
-#define ICNTL(I) icntl[(I)-1] /* macro s.t. indices match documentation */
-#define CNTL(I) cntl[(I)-1] /* macro s.t. indices match documentation */
+#define ICNTL(I)  icntl[(I)-1]  /* macro s.t. indices match documentation */
+#define CNTL(I)   cntl[(I)-1]   /* macro s.t. indices match documentation */
+#define INFO(I)   info[(I)-1]   /* macro s.t. indices match documentation */
+#define INFOG(I)  infog[(I)-1]  /* macro s.t. indices match documentation */
+#define RINFO(I)  rinfo[(I)-1]  /* macro s.t. indices match documentation */
+#define RINFOG(I) rinfog[(I)-1] /* macro s.t. indices match documentation */
 /* No outputs */
 /*  id.ICNTL(1)=-1; id.ICNTL(2)=-1; id.ICNTL(3)=-1; id.ICNTL(4)=0;*/
 /* Call the MUMPS package. */
@@ -57,7 +61,11 @@ class DMUMPS
   }
   DMUMPS_REAL *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
-  DMUMPS_STRUC_C * get_struct(){return id;};  
+  DMUMPS_STRUC_C * get_struct(){return id;};
+  int get_info(int i){return id->INFO(i);}
+  int get_infog(int i){return id->INFOG(i);}
+  DMUMPS_REAL get_rinfo(int i){return id->RINFO(i);}
+  DMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}    
 };
 
 //   zmumps  
@@ -92,7 +100,11 @@ class ZMUMPS
   }
   ZMUMPS_COMPLEX *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
-  ZMUMPS_STRUC_C * get_struct(){return id;};  
+  ZMUMPS_STRUC_C * get_struct(){return id;};
+  int get_info(int i){return id->INFO(i);}
+  int get_infog(int i){return id->INFOG(i);}
+  ZMUMPS_REAL get_rinfo(int i){return id->RINFO(i);}
+  ZMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}      
 };
 
 //   smumps  
@@ -125,7 +137,11 @@ class SMUMPS
   }
   SMUMPS_REAL *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
-  SMUMPS_STRUC_C * get_struct(){return id;};  
+  SMUMPS_STRUC_C * get_struct(){return id;};
+  int get_info(int i){return id->INFO(i);}
+  int get_infog(int i){return id->INFOG(i);}
+  SMUMPS_REAL get_rinfo(int i){return id->RINFO(i);}
+  SMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}      
 };
 
 //   cmumps  
@@ -158,7 +174,11 @@ class CMUMPS
   }
   CMUMPS_COMPLEX *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
-  CMUMPS_STRUC_C * get_struct(){return id;};  
+  CMUMPS_STRUC_C * get_struct(){return id;};
+  int get_info(int i){return id->INFO(i);}
+  int get_infog(int i){return id->INFOG(i);}
+  CMUMPS_REAL get_rinfo(int i){return id->RINFO(i);}
+  CMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}      
 };
   
 } /* end of namespace */
