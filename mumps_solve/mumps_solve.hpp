@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <string.h>
+#include <iostream>
+#include <string>
 #include "mpi.h"
 #include "mumps_c_types.h"
 #include "dmumps_c.h"
@@ -65,7 +66,8 @@ class DMUMPS
   int get_info(int i){return id->INFO(i);}
   int get_infog(int i){return id->INFOG(i);}
   DMUMPS_REAL get_rinfo(int i){return id->RINFO(i);}
-  DMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}    
+  DMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}
+  std::string get_version_number(void){return std::string(id->version_number);}        
 };
 
 //   zmumps  
@@ -104,7 +106,8 @@ class ZMUMPS
   int get_info(int i){return id->INFO(i);}
   int get_infog(int i){return id->INFOG(i);}
   ZMUMPS_REAL get_rinfo(int i){return id->RINFO(i);}
-  ZMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}      
+  ZMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}
+  std::string get_version_number(void){return std::string(id->version_number);}      
 };
 
 //   smumps  
@@ -141,7 +144,8 @@ class SMUMPS
   int get_info(int i){return id->INFO(i);}
   int get_infog(int i){return id->INFOG(i);}
   SMUMPS_REAL get_rinfo(int i){return id->RINFO(i);}
-  SMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}      
+  SMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}
+  std::string get_version_number(void){return std::string(id->version_number);}    
 };
 
 //   cmumps  
@@ -178,7 +182,8 @@ class CMUMPS
   int get_info(int i){return id->INFO(i);}
   int get_infog(int i){return id->INFOG(i);}
   CMUMPS_REAL get_rinfo(int i){return id->RINFO(i);}
-  CMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}      
+  CMUMPS_REAL get_rinfog(int i){return id->RINFOG(i);}
+  std::string get_version_number(void){return std::string(id->version_number);}  
 };
   
 } /* end of namespace */

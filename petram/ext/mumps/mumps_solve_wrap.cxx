@@ -3018,9 +3018,10 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_libmumps_solve__ZMUMPS swig_types[12]
 #define SWIGTYPE_p_mumps_complex swig_types[13]
 #define SWIGTYPE_p_mumps_double_complex swig_types[14]
-#define SWIGTYPE_p_void swig_types[15]
-static swig_type_info *swig_types[17];
-static swig_module_info swig_module = {swig_types, 16, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__string swig_types[15]
+#define SWIGTYPE_p_void swig_types[16]
+static swig_type_info *swig_types[18];
+static swig_module_info swig_module = {swig_types, 17, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4680,6 +4681,28 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DMUMPS_get_version_number(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::string result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:DMUMPS_get_version_number",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__DMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DMUMPS_get_version_number" "', argument " "1"" of type '" "libmumps_solve::DMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::DMUMPS * >(argp1);
+  result = (arg1)->get_version_number();
+  resultobj = SWIG_NewPointerObj((new std::string(static_cast< const std::string& >(result))), SWIGTYPE_p_std__string, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DMUMPS_get_real_rhs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
@@ -5661,6 +5684,28 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ZMUMPS_get_version_number(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::ZMUMPS *arg1 = (libmumps_solve::ZMUMPS *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::string result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ZMUMPS_get_version_number",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__ZMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZMUMPS_get_version_number" "', argument " "1"" of type '" "libmumps_solve::ZMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::ZMUMPS * >(argp1);
+  result = (arg1)->get_version_number();
+  resultobj = SWIG_NewPointerObj((new std::string(static_cast< const std::string& >(result))), SWIGTYPE_p_std__string, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ZMUMPS_get_real_rhs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libmumps_solve::ZMUMPS *arg1 = (libmumps_solve::ZMUMPS *) 0 ;
@@ -6594,6 +6639,28 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SMUMPS_get_version_number(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::SMUMPS *arg1 = (libmumps_solve::SMUMPS *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::string result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:SMUMPS_get_version_number",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__SMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMUMPS_get_version_number" "', argument " "1"" of type '" "libmumps_solve::SMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::SMUMPS * >(argp1);
+  result = (arg1)->get_version_number();
+  resultobj = SWIG_NewPointerObj((new std::string(static_cast< const std::string& >(result))), SWIGTYPE_p_std__string, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *SMUMPS_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
@@ -7483,6 +7550,28 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_CMUMPS_get_version_number(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::CMUMPS *arg1 = (libmumps_solve::CMUMPS *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  std::string result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:CMUMPS_get_version_number",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_libmumps_solve__CMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CMUMPS_get_version_number" "', argument " "1"" of type '" "libmumps_solve::CMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::CMUMPS * >(argp1);
+  result = (arg1)->get_version_number();
+  resultobj = SWIG_NewPointerObj((new std::string(static_cast< const std::string& >(result))), SWIGTYPE_p_std__string, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *CMUMPS_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char *)"O:swigregister", &obj)) return NULL;
@@ -8097,6 +8186,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DMUMPS_get_infog", _wrap_DMUMPS_get_infog, METH_VARARGS, NULL},
 	 { (char *)"DMUMPS_get_rinfo", _wrap_DMUMPS_get_rinfo, METH_VARARGS, NULL},
 	 { (char *)"DMUMPS_get_rinfog", _wrap_DMUMPS_get_rinfog, METH_VARARGS, NULL},
+	 { (char *)"DMUMPS_get_version_number", _wrap_DMUMPS_get_version_number, METH_VARARGS, NULL},
 	 { (char *)"DMUMPS_get_real_rhs", _wrap_DMUMPS_get_real_rhs, METH_VARARGS, NULL},
 	 { (char *)"DMUMPS_swigregister", DMUMPS_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_ZMUMPS", _wrap_new_ZMUMPS, METH_VARARGS, NULL},
@@ -8126,6 +8216,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ZMUMPS_get_infog", _wrap_ZMUMPS_get_infog, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_get_rinfo", _wrap_ZMUMPS_get_rinfo, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_get_rinfog", _wrap_ZMUMPS_get_rinfog, METH_VARARGS, NULL},
+	 { (char *)"ZMUMPS_get_version_number", _wrap_ZMUMPS_get_version_number, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_get_real_rhs", _wrap_ZMUMPS_get_real_rhs, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_get_imag_rhs", _wrap_ZMUMPS_get_imag_rhs, METH_VARARGS, NULL},
 	 { (char *)"ZMUMPS_swigregister", ZMUMPS_swigregister, METH_VARARGS, NULL},
@@ -8154,6 +8245,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SMUMPS_get_infog", _wrap_SMUMPS_get_infog, METH_VARARGS, NULL},
 	 { (char *)"SMUMPS_get_rinfo", _wrap_SMUMPS_get_rinfo, METH_VARARGS, NULL},
 	 { (char *)"SMUMPS_get_rinfog", _wrap_SMUMPS_get_rinfog, METH_VARARGS, NULL},
+	 { (char *)"SMUMPS_get_version_number", _wrap_SMUMPS_get_version_number, METH_VARARGS, NULL},
 	 { (char *)"SMUMPS_swigregister", SMUMPS_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_CMUMPS", _wrap_new_CMUMPS, METH_VARARGS, NULL},
 	 { (char *)"delete_CMUMPS", _wrap_delete_CMUMPS, METH_VARARGS, NULL},
@@ -8180,6 +8272,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"CMUMPS_get_infog", _wrap_CMUMPS_get_infog, METH_VARARGS, NULL},
 	 { (char *)"CMUMPS_get_rinfo", _wrap_CMUMPS_get_rinfo, METH_VARARGS, NULL},
 	 { (char *)"CMUMPS_get_rinfog", _wrap_CMUMPS_get_rinfog, METH_VARARGS, NULL},
+	 { (char *)"CMUMPS_get_version_number", _wrap_CMUMPS_get_version_number, METH_VARARGS, NULL},
 	 { (char *)"CMUMPS_swigregister", CMUMPS_swigregister, METH_VARARGS, NULL},
 	 { (char *)"libmumps_solve_example_dist", _wrap_libmumps_solve_example_dist, METH_VARARGS, NULL},
 	 { (char *)"libmumps_solve_example", _wrap_libmumps_solve_example, METH_VARARGS, NULL},
@@ -8219,6 +8312,7 @@ static swig_type_info _swigt__p_libmumps_solve__SMUMPS = {"_p_libmumps_solve__SM
 static swig_type_info _swigt__p_libmumps_solve__ZMUMPS = {"_p_libmumps_solve__ZMUMPS", "libmumps_solve::ZMUMPS *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mumps_complex = {"_p_mumps_complex", "mumps_complex *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_mumps_double_complex = {"_p_mumps_double_complex", "mumps_double_complex *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_void = {"_p_void", "void *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
@@ -8237,6 +8331,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_libmumps_solve__ZMUMPS,
   &_swigt__p_mumps_complex,
   &_swigt__p_mumps_double_complex,
+  &_swigt__p_std__string,
   &_swigt__p_void,
 };
 
@@ -8255,6 +8350,7 @@ static swig_cast_info _swigc__p_libmumps_solve__SMUMPS[] = {  {&_swigt__p_libmum
 static swig_cast_info _swigc__p_libmumps_solve__ZMUMPS[] = {  {&_swigt__p_libmumps_solve__ZMUMPS, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mumps_complex[] = {  {&_swigt__p_mumps_complex, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_mumps_double_complex[] = {  {&_swigt__p_mumps_double_complex, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
@@ -8273,6 +8369,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_libmumps_solve__ZMUMPS,
   _swigc__p_mumps_complex,
   _swigc__p_mumps_double_complex,
+  _swigc__p_std__string,
   _swigc__p_void,
 };
 
