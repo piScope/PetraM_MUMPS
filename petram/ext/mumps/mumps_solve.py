@@ -450,6 +450,7 @@ class SMUMPS(_object):
     def get_rinfog(self, i):
         return _mumps_solve.SMUMPS_get_rinfog(self, i)
 
+    def get_version_number(self):
         return _mumps_solve.SMUMPS_get_version_number(self)
 SMUMPS_swigregister = _mumps_solve.SMUMPS_swigregister
 SMUMPS_swigregister(SMUMPS)
