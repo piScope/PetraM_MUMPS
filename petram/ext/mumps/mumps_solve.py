@@ -387,8 +387,14 @@ class SMUMPS(_object):
     def finish(self):
         return _mumps_solve.SMUMPS_finish(self)
 
+    def set_cntl(self, i, v):
+        return _mumps_solve.SMUMPS_set_cntl(self, i, v)
+
     def set_icntl(self, i, v):
         return _mumps_solve.SMUMPS_set_icntl(self, i, v)
+
+    def get_cntl(self, i):
+        return _mumps_solve.SMUMPS_get_cntl(self, i)
 
     def get_icntl(self, i):
         return _mumps_solve.SMUMPS_get_icntl(self, i)
@@ -452,6 +458,9 @@ class SMUMPS(_object):
 
     def get_version_number(self):
         return _mumps_solve.SMUMPS_get_version_number(self)
+
+    def get_real_rhs(self):
+        return _mumps_solve.SMUMPS_get_real_rhs(self)
 SMUMPS_swigregister = _mumps_solve.SMUMPS_swigregister
 SMUMPS_swigregister(SMUMPS)
 
@@ -477,8 +486,14 @@ class CMUMPS(_object):
     def finish(self):
         return _mumps_solve.CMUMPS_finish(self)
 
+    def set_cntl(self, i, v):
+        return _mumps_solve.CMUMPS_set_cntl(self, i, v)
+
     def set_icntl(self, i, v):
         return _mumps_solve.CMUMPS_set_icntl(self, i, v)
+
+    def get_cntl(self, i):
+        return _mumps_solve.CMUMPS_get_cntl(self, i)
 
     def get_icntl(self, i):
         return _mumps_solve.CMUMPS_get_icntl(self, i)
@@ -542,6 +557,12 @@ class CMUMPS(_object):
 
     def get_version_number(self):
         return _mumps_solve.CMUMPS_get_version_number(self)
+
+    def get_real_rhs(self):
+        return _mumps_solve.CMUMPS_get_real_rhs(self)
+
+    def get_imag_rhs(self):
+        return _mumps_solve.CMUMPS_get_imag_rhs(self)
 CMUMPS_swigregister = _mumps_solve.CMUMPS_swigregister
 CMUMPS_swigregister(CMUMPS)
 

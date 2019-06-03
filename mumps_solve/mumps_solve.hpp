@@ -121,7 +121,9 @@ class SMUMPS
    ~SMUMPS();
   void run();
   void finish();
+  void set_cntl(int i,  SMUMPS_REAL v){id->CNTL(i) = v;}  
   void set_icntl(int i, int v){id->ICNTL(i) = v;}
+  SMUMPS_REAL get_cntl(int i){return id->CNTL(i);}  
   int get_icntl(int i){return id->ICNTL(i);}
   void set_job(MUMPS_INT n){id->job = n;}  
   void set_n(MUMPS_INT n){id->n = n;}
@@ -159,7 +161,9 @@ class CMUMPS
    ~CMUMPS();
   void run();
   void finish();
+  void set_cntl(int i,  CMUMPS_REAL v){id->CNTL(i) = v;}    
   void set_icntl(int i, int v){id->ICNTL(i) = v;}
+  CMUMPS_REAL get_cntl(int i){return id->CNTL(i);}      
   int get_icntl(int i){return id->ICNTL(i);}
   void set_job(MUMPS_INT n){id->job = n;}  
   void set_n(MUMPS_INT n){id->n = n;}

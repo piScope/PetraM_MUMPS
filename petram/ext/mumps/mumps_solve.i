@@ -333,4 +333,45 @@ def z_to_list(A, l):
     return  pArray;
   }
 };
+%extend libmumps_solve::CMUMPS{
+  PyObject * get_real_rhs(void) {
+    MUMPS_INT nrhs = self->get_struct()->nrhs;
+    MUMPS_INT lrhs = self->get_struct()->lrhs;
+    CMUMPS_COMPLEX *rhs = self->get_struct()->rhs;
+    npy_intp dims[] = {nrhs*lrhs};        
+    PyObject *pArray = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!pArray){return NULL;}
+    for (MUMPS_INT i=0; i< nrhs*lrhs; i++){
+      ((double *)PyArray_DATA(pArray))[i] = (double) rhs[i].r;
+    }
+    return  pArray;
+  }
+  PyObject * get_imag_rhs(void) {
+    MUMPS_INT nrhs = self->get_struct()->nrhs;
+    MUMPS_INT lrhs = self->get_struct()->lrhs;    
+    CMUMPS_COMPLEX *rhs = self->get_struct()->rhs;
+    npy_intp dims[] = {nrhs*lrhs};    
+    PyObject *pArray = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!pArray){return NULL;}
+    for (MUMPS_INT i=0; i< nrhs*lrhs; i++){
+      ((double *)PyArray_DATA(pArray))[i] = (double) rhs[i].i;
+    }
+    return  pArray;
+  }
+  
+};
+%extend libmumps_solve::SMUMPS{
+  PyObject * get_real_rhs(void) {
+    MUMPS_INT nrhs = self->get_struct()->nrhs;
+    MUMPS_INT lrhs = self->get_struct()->lrhs;
+    SMUMPS_REAL *rhs = self->get_struct()->rhs;
+    npy_intp dims[] = {nrhs*lrhs};        
+    PyObject *pArray = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!pArray){return NULL;}
+    for (MUMPS_INT i=0; i< nrhs*lrhs; i++){
+      ((double *)PyArray_DATA(pArray))[i] = (double) rhs[i];
+    }
+    return  pArray;
+  }
+};
 
