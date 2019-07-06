@@ -1,3 +1,4 @@
+from __future__ import print_function
 """
 setup.py file for SWIG example
 """
@@ -57,7 +58,7 @@ library_dirs = [os.getenv("MUMPS_SOLVE_DIR")]
 libraries = ["mumps_solve"]
 for lib in lib_list:
     if eval(lib) != "":
-        print lib, eval(lib)
+        print(lib, eval(lib))
         library_dirs.append(eval(lib+ 'lnkdir'))
         libraries.append(eval(lib+'lib'))
         
