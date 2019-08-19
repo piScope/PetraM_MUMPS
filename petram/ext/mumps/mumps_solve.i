@@ -12,8 +12,31 @@
 import_array();
 %}
 %include mpi4py/mpi4py.i
-%mpi4py_typemap(Comm, MPI_Comm);
+%mpi4py_typemap(Comm, MPI_Comm)
 %include "mumps_c_types.h"  
+
+
+%pythonprepend libmumps_solve::DMUMPS::run %{
+import sys
+sys.stdout.flush()
+sys.stderr.flush()  
+%}
+%pythonprepend libmumps_solve::SMUMPS::run %{
+import sys
+sys.stdout.flush()
+sys.stderr.flush()  
+%}
+%pythonprepend libmumps_solve::CMUMPS::run %{
+import sys
+sys.stdout.flush()
+sys.stderr.flush()  
+%}
+%pythonprepend libmumps_solve::ZMUMPS::run %{
+import sys
+sys.stdout.flush()
+sys.stderr.flush()  
+%}
+
 %include "mumps_solve.hpp"
 
 %inline %{

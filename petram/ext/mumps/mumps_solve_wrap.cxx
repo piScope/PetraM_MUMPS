@@ -3362,13 +3362,13 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 SWIGINTERN int
 SWIG_AsPtr_MPI_Comm (PyObject * input, MPI_Comm **p) {
   if (input == Py_None) {
-    if (p) *p = 0;
+    if (p) *p = NULL;
     return SWIG_OK;
   } else if (PyObject_TypeCheck(input,&PyMPIComm_Type)) {
     if (p) *p = PyMPIComm_Get(input);
     return SWIG_OK;
   } else {
-    void *argp = 0;
+    void *argp = NULL;
     int res = SWIG_ConvertPtr(input,&argp,SWIGTYPE_p_MPI_Comm, 0);
     if (!SWIG_IsOK(res)) return res;
     if (!argp) return SWIG_ValueError;

@@ -181,7 +181,14 @@ class DMUMPS(_object):
     __del__ = lambda self: None
 
     def run(self):
+
+        import sys
+        sys.stdout.flush()
+        sys.stderr.flush()  
+
+
         return _mumps_solve.DMUMPS_run(self)
+
 
     def finish(self):
         return _mumps_solve.DMUMPS_finish(self)
@@ -280,7 +287,14 @@ class ZMUMPS(_object):
     __del__ = lambda self: None
 
     def run(self):
+
+        import sys
+        sys.stdout.flush()
+        sys.stderr.flush()  
+
+
         return _mumps_solve.ZMUMPS_run(self)
+
 
     def finish(self):
         return _mumps_solve.ZMUMPS_finish(self)
@@ -382,7 +396,14 @@ class SMUMPS(_object):
     __del__ = lambda self: None
 
     def run(self):
+
+        import sys
+        sys.stdout.flush()
+        sys.stderr.flush()  
+
+
         return _mumps_solve.SMUMPS_run(self)
+
 
     def finish(self):
         return _mumps_solve.SMUMPS_finish(self)
@@ -481,7 +502,14 @@ class CMUMPS(_object):
     __del__ = lambda self: None
 
     def run(self):
+
+        import sys
+        sys.stdout.flush()
+        sys.stderr.flush()  
+
+
         return _mumps_solve.CMUMPS_run(self)
+
 
     def finish(self):
         return _mumps_solve.CMUMPS_finish(self)

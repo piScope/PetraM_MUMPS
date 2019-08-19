@@ -7,7 +7,7 @@ SWIGFLAG = -Wall -c++ -python
 IFILE = mumps_solve.i
 ALLCXX = $(IFILE:.i=._wrap.cxx)
 
-MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print mpi4py.get_include()")
+MPI4PYINCDIR = $(shell $(PYTHON) -c "import mpi4py;print(mpi4py.get_include())")
 MPI4PYINC  = -I$(MPI4PYINCDIR)
 MUMPSINC   = -I$(MUMPS_INC_DIR)
 .PHONEY:allso clean

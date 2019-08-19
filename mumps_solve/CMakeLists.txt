@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 3.12.0)
 
 #  example cmake command
 #  cmake .. -DCMAKE_INSTALL_NAME_DIR=${HOME}/sandbox/lib
@@ -22,7 +22,9 @@ if (OPENMP_FOUND)
         set(OpenMP_LINK_FLAG ${OpenMP_EXE_LINKER_FLAGS})
     endif()
 else()
-    set(OpenMP_LINK_FLAG "")
+    if(DEFINED OpenMP_Fortran)
+        set(OpenMP_LINK_FLAG  ${OpenMP_Fortran})
+    endif()
     set(OpenMP_CXX_FLAGS "")
 endif()
 
@@ -80,7 +82,7 @@ target_link_libraries(mumps_solve
 			    -L${METIS_LINK_DIR}
 			    metis
    		            ${LAPACK_FLAGS}			    
-			    ${MPI_C_LIBRARIES} 
+			    ${MPI_C_LIBRARIES}
                             ${OpenMP_LINK_FLAG})
 
 			    

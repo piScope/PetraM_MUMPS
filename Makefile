@@ -44,6 +44,8 @@ default: so
 ##
 cxx: 
 	$(MAKE) -C petram/ext cxx
+cleancxx: 
+	$(MAKE) -C petram/ext cleancxx
 so:
 	$(PYTHON) setup.py build 
 install:
