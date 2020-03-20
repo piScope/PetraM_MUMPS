@@ -1,4 +1,4 @@
-%module mumps_solve
+%module(package="petram.ext.mumps") mumps_solve
 %{
 #include <mpi.h>
 #include <iostream>  
