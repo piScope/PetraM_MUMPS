@@ -27,6 +27,7 @@ from distutils      import sysconfig
 
 modules= ["mumps_solve", ]
 
+module_path="petram.ext.mumps."
 sdir = "petram/ext/mumps/"
 sources = {name: [sdir + name + "_wrap.cxx"] for name in modules}
 
@@ -87,7 +88,7 @@ for kk, name in enumerate(modules):
    #extra_link_args =  [x for x in extra_link_args if len(x) != 0]   
 
 
-   ext_modules.append(Extension(proxy_names[name],
+   ext_modules.append(Extension(module_path+proxy_names[name],
                         sources=sources[name],
                         extra_compile_args = ['-DSWIG_TYPE_TABLE=PyMFEM'],   
                         extra_link_args = extra_link_args,
@@ -97,7 +98,7 @@ for kk, name in enumerate(modules):
 
 setup (name = 'PetraM_MUMPS',
        url='https://github.com/piScope/PetraM',       
-       version = '0.9.0',
+       version = '0.9.1',
        description = 'PetraM MUMPS interface', 
        long_description=long_description,       
        author      = "S. Shiraiwa",
