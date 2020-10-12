@@ -60,6 +60,10 @@ class DMUMPS
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
   }
+  void set_saveparam(const char *prefix, const char *dir){
+       strcpy(id->save_prefix, prefix);
+       strcpy(id->save_dir, dir);
+  }
   DMUMPS_REAL *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
   DMUMPS_STRUC_C * get_struct(){return id;};
@@ -99,6 +103,10 @@ class ZMUMPS
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
+  }
+  void set_saveparam(const char *prefix, const char *dir){
+       strcpy(id->save_prefix, prefix);
+       strcpy(id->save_dir, dir);
   }
   ZMUMPS_COMPLEX *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
@@ -140,6 +148,10 @@ class SMUMPS
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
   }
+  void set_saveparam(const char *prefix, const char *dir){
+       strcpy(id->save_prefix, prefix);
+       strcpy(id->save_dir, dir);
+  }
   SMUMPS_REAL *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
   SMUMPS_STRUC_C * get_struct(){return id;};
@@ -179,6 +191,10 @@ class CMUMPS
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
+  }
+  void set_saveparam(const char *prefix, const char *dir){
+       strcpy(id->save_prefix, prefix);
+       strcpy(id->save_dir, dir);
   }
   CMUMPS_COMPLEX *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}

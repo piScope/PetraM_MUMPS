@@ -11,6 +11,20 @@ cmake_minimum_required(VERSION 3.12.0)
 #	   -DMUMPS_LINK_DIR=/Users/shiraiwa/src/MUMPS_5.1.1/lib/
 
 project(MUMPS)
+
+option(USE_METIS "Link with METIS/ParMETIS library" ON)
+option(USE_SCOTCH "Link with Scotch/PT-Scotch library" ON)
+
+if(NOT METIS_LINK_DIR)
+    set(METIS_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+endif()
+if(NOT PARMETIS_LINK_DIR)
+    set(PARMETIS_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+endif()
+if(NOT SCOTCH_LINK_DIR)
+    set(SCOTCH_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+endif()
+  
 enable_language(Fortran)
 
 find_package(ZLIB REQUIRED)
@@ -58,6 +72,27 @@ set( IFLAG " -I")
 set( CMP_FLAG ${OpenMP_CXX_FLAGS}${SHARED_SC_COMPILE_FLAGS}${IFLAG}${MUMPS_INCLUDE_DIR})
 message(STATUS ${CMP_FLAG})
 message(STATUS ${MUMPS_INCLUDE_DIR})
+
+# METIS_LIBRARIES
+list(APPEND METIS_LIBRARIES "")
+if (USE_METIS)
+  list(APPEND METIS_LIBRARIES
+     -L${PARMETIS_LINK_DIR}
+     "parmetis"
+     -L${METIS_LINK_DIR}
+     "metis")
+endif()
+ 
+# SCOTCH_LIBRARIES
+list(APPEND SCOTCH_LIBRARIES "")
+if (USE_SCOTCH)
+  list(APPEND SCOTCH_LIBRARIES
+    -L${SCOTCH_LINK_DIR}
+    "ptesmumps"
+    "ptscotch"
+    "ptscotcherr")
+endif()
+
 # make target
 add_library(mumps_solve SHARED mumps_solve.cpp)
 target_include_directories(mumps_solve PRIVATE ${MUMPS_INCLUDE_DIR})
@@ -77,10 +112,8 @@ target_link_libraries(mumps_solve
                             ${SHARED_SC_LINK_FLAGS_2}
                             ${SYMBOL_FLAG1}
                             ${SYMBOL_FLAG2}			    
-			    -L${PARMETIS_LINK_DIR}
-			    parmetis			    
-			    -L${METIS_LINK_DIR}
-			    metis
+			    ${METIS_LIBRARIES}
+			    ${SCOTCH_LIBRARIES}
    		            ${LAPACK_FLAGS}			    
 			    ${MPI_C_LIBRARIES}
                             ${OpenMP_LINK_FLAG})
