@@ -15,16 +15,22 @@ project(MUMPS)
 option(USE_METIS "Link with METIS/ParMETIS library" ON)
 option(USE_SCOTCH "Link with Scotch/PT-Scotch library" ON)
 
+
 if(NOT METIS_LINK_DIR)
-    set(METIS_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+  set(METIS_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+
 endif()
 if(NOT PARMETIS_LINK_DIR)
-    set(PARMETIS_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
+  set(PARMETIS_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
 endif()
 if(NOT SCOTCH_LINK_DIR)
     set(SCOTCH_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
 endif()
   
+set(CMAKE_INSTALL_RPATH ${METIS_LINK_DIR}
+                        ${PARMETIS_LINK_DIR}
+                        ${SCOTCH_LINK_DIR})
+
 enable_language(Fortran)
 
 find_package(ZLIB REQUIRED)
