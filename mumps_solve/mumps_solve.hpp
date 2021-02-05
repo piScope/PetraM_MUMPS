@@ -45,20 +45,39 @@ class DMUMPS
   void set_icntl(int i, int v){id->ICNTL(i) = v;}
   DMUMPS_REAL get_cntl(int i){return id->CNTL(i);}  
   int get_icntl(int i){return id->ICNTL(i);}
-  void set_job(MUMPS_INT n){id->job = n;}  
+  void set_job(MUMPS_INT n){id->job = n;}
+  
   void set_n(MUMPS_INT n){id->n = n;}
-  void set_nz(MUMPS_INT nz){id->nz = nz;}
+  
   void set_irn(MUMPS_INT *irn){id->irn = irn;}
   void set_jcn(MUMPS_INT *jcn){id->jcn = jcn;}
-  void set_nz_loc(MUMPS_INT nz){id->nz_loc = nz;}  
   void set_irn_loc(MUMPS_INT *irn){id->irn_loc = irn;}
-  void set_jcn_loc(MUMPS_INT *jcn){id->jcn_loc = jcn;}  
+  void set_jcn_loc(MUMPS_INT *jcn){id->jcn_loc = jcn;}
+
+  // NZ
+  void set_nz32(MUMPS_INT nz){id->nz = nz;}
+  void set_nz32_loc(MUMPS_INT nz){id->nz_loc = nz;}
+  void set_nz(int64_t nnz){id->nnz = nnz;}    
+  void set_nz_loc(int64_t nnz){id->nnz_loc = nnz;}    
+  
   void set_a(DMUMPS_REAL *a){id->a = a;}
   void set_a_loc(DMUMPS_REAL *a){id->a_loc = a;}  
   void set_rhs(DMUMPS_REAL *rhs){id->rhs = rhs;}
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
+  }
+  // distributed sol
+  void set_sol_loc(DMUMPS_REAL *sol_loc,
+		   MUMPS_INT lsol_loc,
+		   MUMPS_INT *isol_loc){
+       id->sol_loc=sol_loc;
+       id->lsol_loc=lsol_loc;
+       id->isol_loc=isol_loc;       
+  }
+  void set_saveparam(const char *prefix, const char *dir){
+       strcpy(id->save_prefix, prefix);
+       strcpy(id->save_dir, dir);
   }
   DMUMPS_REAL *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
@@ -85,20 +104,39 @@ class ZMUMPS
   void set_icntl(int i, int v){id->ICNTL(i) = v;}
   ZMUMPS_REAL get_cntl(int i){return id->CNTL(i);}
   int get_icntl(int i){return id->ICNTL(i);}
-  void set_job(MUMPS_INT n){id->job = n;}  
+  void set_job(MUMPS_INT n){id->job = n;}
+  
   void set_n(MUMPS_INT n){id->n = n;}
-  void set_nz(MUMPS_INT nz){id->nz = nz;}
+  
   void set_irn(MUMPS_INT *irn){id->irn = irn;}
   void set_jcn(MUMPS_INT *jcn){id->jcn = jcn;}
-  void set_nz_loc(MUMPS_INT nz){id->nz_loc = nz;}  
   void set_irn_loc(MUMPS_INT *irn){id->irn_loc = irn;}
-  void set_jcn_loc(MUMPS_INT *jcn){id->jcn_loc = jcn;}  
+  void set_jcn_loc(MUMPS_INT *jcn){id->jcn_loc = jcn;}
+
+  // NZ
+  void set_nz32(MUMPS_INT nz){id->nz = nz;}
+  void set_nz32_loc(MUMPS_INT nz){id->nz_loc = nz;}
+  void set_nz(int64_t nnz){id->nnz = nnz;}    
+  void set_nz_loc(int64_t nnz){id->nnz_loc = nnz;}    
+  
   void set_a(ZMUMPS_COMPLEX *a){id->a = a;}
   void set_a_loc(ZMUMPS_COMPLEX *a){id->a_loc = a;}  
   void set_rhs(ZMUMPS_COMPLEX *rhs){id->rhs = rhs;}
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
+  }
+  // distributed sol
+  void set_sol_loc(ZMUMPS_COMPLEX *sol_loc,
+		   MUMPS_INT lsol_loc,
+		   MUMPS_INT *isol_loc){
+       id->sol_loc=sol_loc;
+       id->lsol_loc=lsol_loc;
+       id->isol_loc=isol_loc;       
+  }
+  void set_saveparam(const char *prefix, const char *dir){
+       strcpy(id->save_prefix, prefix);
+       strcpy(id->save_dir, dir);
   }
   ZMUMPS_COMPLEX *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
@@ -125,20 +163,39 @@ class SMUMPS
   void set_icntl(int i, int v){id->ICNTL(i) = v;}
   SMUMPS_REAL get_cntl(int i){return id->CNTL(i);}  
   int get_icntl(int i){return id->ICNTL(i);}
-  void set_job(MUMPS_INT n){id->job = n;}  
+  void set_job(MUMPS_INT n){id->job = n;}
+  
   void set_n(MUMPS_INT n){id->n = n;}
-  void set_nz(MUMPS_INT nz){id->nz = nz;}
+  
   void set_irn(MUMPS_INT *irn){id->irn = irn;}
   void set_jcn(MUMPS_INT *jcn){id->jcn = jcn;}
-  void set_nz_loc(MUMPS_INT nz){id->nz_loc = nz;}  
   void set_irn_loc(MUMPS_INT *irn){id->irn_loc = irn;}
-  void set_jcn_loc(MUMPS_INT *jcn){id->jcn_loc = jcn;}  
+  void set_jcn_loc(MUMPS_INT *jcn){id->jcn_loc = jcn;}
+
+  // NZ
+  void set_nz32(MUMPS_INT nz){id->nz = nz;}
+  void set_nz32_loc(MUMPS_INT nz){id->nz_loc = nz;}
+  void set_nz(int64_t nnz){id->nnz = nnz;}    
+  void set_nz_loc(int64_t nnz){id->nnz_loc = nnz;}    
+  
   void set_a(SMUMPS_REAL *a){id->a = a;}
   void set_a_loc(SMUMPS_REAL *a){id->a_loc = a;}  
   void set_rhs(SMUMPS_REAL *rhs){id->rhs = rhs;}
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
+  }
+  // distributed sol
+  void set_sol_loc(SMUMPS_REAL *sol_loc,
+		   MUMPS_INT lsol_loc,
+		   MUMPS_INT *isol_loc){
+       id->sol_loc=sol_loc;
+       id->lsol_loc=lsol_loc;
+       id->isol_loc=isol_loc;       
+  }
+  void set_saveparam(const char *prefix, const char *dir){
+       strcpy(id->save_prefix, prefix);
+       strcpy(id->save_dir, dir);
   }
   SMUMPS_REAL *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
@@ -165,20 +222,39 @@ class CMUMPS
   void set_icntl(int i, int v){id->ICNTL(i) = v;}
   CMUMPS_REAL get_cntl(int i){return id->CNTL(i);}      
   int get_icntl(int i){return id->ICNTL(i);}
-  void set_job(MUMPS_INT n){id->job = n;}  
+  void set_job(MUMPS_INT n){id->job = n;}
+  
   void set_n(MUMPS_INT n){id->n = n;}
-  void set_nz(MUMPS_INT nz){id->nz = nz;}
+  
   void set_irn(MUMPS_INT *irn){id->irn = irn;}
   void set_jcn(MUMPS_INT *jcn){id->jcn = jcn;}
-  void set_nz_loc(MUMPS_INT nz){id->nz_loc = nz;}  
   void set_irn_loc(MUMPS_INT *irn){id->irn_loc = irn;}
-  void set_jcn_loc(MUMPS_INT *jcn){id->jcn_loc = jcn;}  
+  void set_jcn_loc(MUMPS_INT *jcn){id->jcn_loc = jcn;}
+
+  // NZ
+  void set_nz32(MUMPS_INT nz){id->nz = nz;}
+  void set_nz32_loc(MUMPS_INT nz){id->nz_loc = nz;}
+  void set_nz(int64_t nnz){id->nnz = nnz;}    
+  void set_nz_loc(int64_t nnz){id->nnz_loc = nnz;}    
+  
   void set_a(CMUMPS_COMPLEX *a){id->a = a;}
   void set_a_loc(CMUMPS_COMPLEX *a){id->a_loc = a;}  
   void set_rhs(CMUMPS_COMPLEX *rhs){id->rhs = rhs;}
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
+  }
+  // distributed sol
+  void set_sol_loc(CMUMPS_COMPLEX *sol_loc,
+		   MUMPS_INT lsol_loc,
+		   MUMPS_INT *isol_loc){
+       id->sol_loc=sol_loc;
+       id->lsol_loc=lsol_loc;
+       id->isol_loc=isol_loc;       
+  }
+  void set_saveparam(const char *prefix, const char *dir){
+       strcpy(id->save_prefix, prefix);
+       strcpy(id->save_dir, dir);
   }
   CMUMPS_COMPLEX *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}

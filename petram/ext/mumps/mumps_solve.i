@@ -1,11 +1,13 @@
 %module(package="petram.ext.mumps") mumps_solve
 %{
 #include <mpi.h>
-#include <iostream>  
+#include <iostream>
 #include <complex.h>
 #include "mumps_solve.hpp"
 #include "mumps_c_types.h"
-#include "numpy/arrayobject.h"    
+#include "numpy/arrayobject.h"
+  //typedef struct{double real;double imag;} cdouble;
+  //typedef struct{float real;float imag;} cfloat;
 %}
 // initialization required to return numpy array from SWIG
 %init %{
@@ -15,7 +17,8 @@ import_array();
 %mpi4py_typemap(Comm, MPI_Comm)
 %include "mumps_c_types.h"  
 
-
+typedef long long int	int64_t;
+  
 %pythonprepend libmumps_solve::DMUMPS::run %{
 import sys
 sys.stdout.flush()
@@ -298,7 +301,7 @@ SMUMPS_REAL s_array_getitem(SMUMPS_REAL *arr, MUMPS_INT i){return arr[i];}
 ZMUMPS_REAL z_array_real_getitem(ZMUMPS_COMPLEX *arr, MUMPS_INT i){return arr[i].r;}
 CMUMPS_REAL c_array_real_getitem(CMUMPS_COMPLEX *arr, MUMPS_INT i){return arr[i].r;}
 ZMUMPS_REAL z_array_imag_getitem(ZMUMPS_COMPLEX *arr, MUMPS_INT i){return arr[i].i;}
-CMUMPS_REAL c_array_imag_getitem(CMUMPS_COMPLEX *arr, MUMPS_INT i){return arr[i].i;}  
+CMUMPS_REAL c_array_imag_getitem(CMUMPS_COMPLEX *arr, MUMPS_INT i){return arr[i].i;}
 %}
 %pythoncode %{
 def i_to_list(A, l):
@@ -340,7 +343,22 @@ def z_to_list(A, l):
     }
     return  pArray;
   }
-  
+  /*
+  PyObject * get_sol_loc(void) {
+    MUMPS_INT nrhs = self->get_struct()->nrhs;
+    MUMPS_INT lrhs = self->get_struct()->lsol_loc;
+    ZMUMPS_COMPLEX *sol = self->get_struct()->sol_loc;
+    npy_intp dims[] = {nrhs*lrhs};        
+    PyObject *pArray = PyArray_SimpleNew(1, dims, NPY_CDOUBLE);
+    if (!pArray){return NULL;}
+
+    for (MUMPS_INT i=0; i< nrhs*lrhs; i++){
+      ((cdouble *)PyArray_DATA(pArray))[i].real = (double) sol[i].r;
+      ((cdouble *)PyArray_DATA(pArray))[i].imag = (double) sol[i].i;      
+    }
+    return  pArray;
+  } 
+  */ 
 };
 %extend libmumps_solve::DMUMPS{
   PyObject * get_real_rhs(void) {
@@ -355,6 +373,20 @@ def z_to_list(A, l):
     }
     return  pArray;
   }
+  /*
+  PyObject * get_sol_loc(void) {
+    MUMPS_INT nrhs = self->get_struct()->nrhs;
+    MUMPS_INT lrhs = self->get_struct()->lsol_loc;
+    DMUMPS_REAL *sol = self->get_struct()->sol_loc;
+    npy_intp dims[] = {nrhs*lrhs};        
+    PyObject *pArray = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!pArray){return NULL;}
+    for (MUMPS_INT i=0; i< nrhs*lrhs; i++){
+      ((double *)PyArray_DATA(pArray))[i] = (double) sol[i];
+    }
+    return  pArray;
+  }
+  */
 };
 %extend libmumps_solve::CMUMPS{
   PyObject * get_real_rhs(void) {
@@ -381,7 +413,21 @@ def z_to_list(A, l):
     }
     return  pArray;
   }
-  
+  /*
+  PyObject * get_sol_loc(void) {
+    MUMPS_INT nrhs = self->get_struct()->nrhs;
+    MUMPS_INT lrhs = self->get_struct()->lsol_loc;
+    CMUMPS_COMPLEX *sol = self->get_struct()->sol_loc;
+    npy_intp dims[] = {nrhs*lrhs};        
+    PyObject *pArray = PyArray_SimpleNew(1, dims, NPY_CDOUBLE);
+    if (!pArray){return NULL;}
+    for (MUMPS_INT i=0; i< nrhs*lrhs; i++){
+      ((cdouble *)PyArray_DATA(pArray))[i].real = (double) sol[i].r;
+      ((cdouble *)PyArray_DATA(pArray))[i].imag = (double) sol[i].i;      
+    }
+    return  pArray;
+  }
+  */
 };
 %extend libmumps_solve::SMUMPS{
   PyObject * get_real_rhs(void) {
@@ -396,5 +442,19 @@ def z_to_list(A, l):
     }
     return  pArray;
   }
+  /*
+  PyObject * get_sol_loc(void) {
+    MUMPS_INT nrhs = self->get_struct()->nrhs;
+    MUMPS_INT lrhs = self->get_struct()->lsol_loc;
+    SMUMPS_REAL *sol = self->get_struct()->sol_loc;
+    npy_intp dims[] = {nrhs*lrhs};        
+    PyObject *pArray = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+    if (!pArray){return NULL;}
+    for (MUMPS_INT i=0; i< nrhs*lrhs; i++){
+      ((double *)PyArray_DATA(pArray))[i] = (double) sol[i];
+    }
+    return  pArray;
+  }
+  */
 };
 
