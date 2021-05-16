@@ -4514,6 +4514,49 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DMUMPS_set_oocparam(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject *swig_obj[3] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "DMUMPS_set_oocparam", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libmumps_solve__DMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DMUMPS_set_oocparam" "', argument " "1"" of type '" "libmumps_solve::DMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::DMUMPS * >(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DMUMPS_set_oocparam" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = reinterpret_cast< char * >(buf2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DMUMPS_set_oocparam" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = reinterpret_cast< char * >(buf3);
+  (arg1)->set_oocparam((char const *)arg2,(char const *)arg3);
+  resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DMUMPS_get_rhs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libmumps_solve::DMUMPS *arg1 = (libmumps_solve::DMUMPS *) 0 ;
@@ -5629,6 +5672,49 @@ SWIGINTERN PyObject *_wrap_ZMUMPS_set_saveparam(PyObject *SWIGUNUSEDPARM(self), 
   }
   arg3 = reinterpret_cast< char * >(buf3);
   (arg1)->set_saveparam((char const *)arg2,(char const *)arg3);
+  resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ZMUMPS_set_oocparam(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::ZMUMPS *arg1 = (libmumps_solve::ZMUMPS *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject *swig_obj[3] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "ZMUMPS_set_oocparam", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libmumps_solve__ZMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ZMUMPS_set_oocparam" "', argument " "1"" of type '" "libmumps_solve::ZMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::ZMUMPS * >(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ZMUMPS_set_oocparam" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = reinterpret_cast< char * >(buf2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ZMUMPS_set_oocparam" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = reinterpret_cast< char * >(buf3);
+  (arg1)->set_oocparam((char const *)arg2,(char const *)arg3);
   resultobj = SWIG_Py_Void();
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
@@ -6789,6 +6875,49 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SMUMPS_set_oocparam(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::SMUMPS *arg1 = (libmumps_solve::SMUMPS *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject *swig_obj[3] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "SMUMPS_set_oocparam", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libmumps_solve__SMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SMUMPS_set_oocparam" "', argument " "1"" of type '" "libmumps_solve::SMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::SMUMPS * >(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SMUMPS_set_oocparam" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = reinterpret_cast< char * >(buf2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "SMUMPS_set_oocparam" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = reinterpret_cast< char * >(buf3);
+  (arg1)->set_oocparam((char const *)arg2,(char const *)arg3);
+  resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_SMUMPS_get_rhs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libmumps_solve::SMUMPS *arg1 = (libmumps_solve::SMUMPS *) 0 ;
@@ -7915,6 +8044,49 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_CMUMPS_set_oocparam(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  libmumps_solve::CMUMPS *arg1 = (libmumps_solve::CMUMPS *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject *swig_obj[3] ;
+  
+  if (!SWIG_Python_UnpackTuple(args, "CMUMPS_set_oocparam", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_libmumps_solve__CMUMPS, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CMUMPS_set_oocparam" "', argument " "1"" of type '" "libmumps_solve::CMUMPS *""'"); 
+  }
+  arg1 = reinterpret_cast< libmumps_solve::CMUMPS * >(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "CMUMPS_set_oocparam" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = reinterpret_cast< char * >(buf2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "CMUMPS_set_oocparam" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = reinterpret_cast< char * >(buf3);
+  (arg1)->set_oocparam((char const *)arg2,(char const *)arg3);
+  resultobj = SWIG_Py_Void();
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_CMUMPS_get_rhs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   libmumps_solve::CMUMPS *arg1 = (libmumps_solve::CMUMPS *) 0 ;
@@ -8799,6 +8971,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "DMUMPS_set_lrhs_nrhs", _wrap_DMUMPS_set_lrhs_nrhs, METH_VARARGS, NULL},
 	 { "DMUMPS_set_sol_loc", _wrap_DMUMPS_set_sol_loc, METH_VARARGS, NULL},
 	 { "DMUMPS_set_saveparam", _wrap_DMUMPS_set_saveparam, METH_VARARGS, NULL},
+	 { "DMUMPS_set_oocparam", _wrap_DMUMPS_set_oocparam, METH_VARARGS, NULL},
 	 { "DMUMPS_get_rhs", _wrap_DMUMPS_get_rhs, METH_O, NULL},
 	 { "DMUMPS_set_ictrl", _wrap_DMUMPS_set_ictrl, METH_VARARGS, NULL},
 	 { "DMUMPS_get_struct", _wrap_DMUMPS_get_struct, METH_O, NULL},
@@ -8834,6 +9007,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "ZMUMPS_set_lrhs_nrhs", _wrap_ZMUMPS_set_lrhs_nrhs, METH_VARARGS, NULL},
 	 { "ZMUMPS_set_sol_loc", _wrap_ZMUMPS_set_sol_loc, METH_VARARGS, NULL},
 	 { "ZMUMPS_set_saveparam", _wrap_ZMUMPS_set_saveparam, METH_VARARGS, NULL},
+	 { "ZMUMPS_set_oocparam", _wrap_ZMUMPS_set_oocparam, METH_VARARGS, NULL},
 	 { "ZMUMPS_get_rhs", _wrap_ZMUMPS_get_rhs, METH_O, NULL},
 	 { "ZMUMPS_set_ictrl", _wrap_ZMUMPS_set_ictrl, METH_VARARGS, NULL},
 	 { "ZMUMPS_get_struct", _wrap_ZMUMPS_get_struct, METH_O, NULL},
@@ -8870,6 +9044,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "SMUMPS_set_lrhs_nrhs", _wrap_SMUMPS_set_lrhs_nrhs, METH_VARARGS, NULL},
 	 { "SMUMPS_set_sol_loc", _wrap_SMUMPS_set_sol_loc, METH_VARARGS, NULL},
 	 { "SMUMPS_set_saveparam", _wrap_SMUMPS_set_saveparam, METH_VARARGS, NULL},
+	 { "SMUMPS_set_oocparam", _wrap_SMUMPS_set_oocparam, METH_VARARGS, NULL},
 	 { "SMUMPS_get_rhs", _wrap_SMUMPS_get_rhs, METH_O, NULL},
 	 { "SMUMPS_set_ictrl", _wrap_SMUMPS_set_ictrl, METH_VARARGS, NULL},
 	 { "SMUMPS_get_struct", _wrap_SMUMPS_get_struct, METH_O, NULL},
@@ -8905,6 +9080,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "CMUMPS_set_lrhs_nrhs", _wrap_CMUMPS_set_lrhs_nrhs, METH_VARARGS, NULL},
 	 { "CMUMPS_set_sol_loc", _wrap_CMUMPS_set_sol_loc, METH_VARARGS, NULL},
 	 { "CMUMPS_set_saveparam", _wrap_CMUMPS_set_saveparam, METH_VARARGS, NULL},
+	 { "CMUMPS_set_oocparam", _wrap_CMUMPS_set_oocparam, METH_VARARGS, NULL},
 	 { "CMUMPS_get_rhs", _wrap_CMUMPS_get_rhs, METH_O, NULL},
 	 { "CMUMPS_set_ictrl", _wrap_CMUMPS_set_ictrl, METH_VARARGS, NULL},
 	 { "CMUMPS_get_struct", _wrap_CMUMPS_get_struct, METH_O, NULL},
