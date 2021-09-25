@@ -8561,7 +8561,7 @@ SWIGINTERN PyObject *_wrap_c_array(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
       return NULL;
     }
     int $2;
-    if PyList_Check(swig_obj[0]){
+    if (PyList_Check(swig_obj[0])){
       $2 = PyList_Size(swig_obj[0]);
       arg1 = (mumps_complex *) malloc(($2)*sizeof(mumps_complex));
       for (int i = 0; i < $2; i++) {
@@ -8607,7 +8607,7 @@ SWIGINTERN PyObject *_wrap_z_array(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
       return NULL;
     }
     int $2;
-    if PyList_Check(swig_obj[0]){
+    if (PyList_Check(swig_obj[0])){
       $2 = PyList_Size(swig_obj[0]);
       arg1 = (mumps_double_complex *) malloc(($2)*sizeof(mumps_double_complex));
       for (int i = 0; i < $2; i++) {
