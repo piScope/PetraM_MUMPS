@@ -177,7 +177,7 @@ sys.stderr.flush()
     return NULL;
   }
   MUMPS_INT $2;
-  if PyList_Check($input){
+  if (PyList_Check($input)){
      $2 = PyList_Size($input);
      $1 = (CMUMPS_COMPLEX *) malloc(($2)*sizeof(CMUMPS_COMPLEX));
      for (MUMPS_INT i = 0; i < $2; i++) {
@@ -207,7 +207,7 @@ sys.stderr.flush()
     return NULL;
   }
   MUMPS_INT $2;
-  if PyList_Check($input){
+  if (PyList_Check($input)){
      $2 = PyList_Size($input);
      $1 = (ZMUMPS_COMPLEX *) malloc(($2)*sizeof(ZMUMPS_COMPLEX));
      for (MUMPS_INT i = 0; i < $2; i++) {
