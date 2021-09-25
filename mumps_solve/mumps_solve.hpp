@@ -79,6 +79,10 @@ class DMUMPS
        strcpy(id->save_prefix, prefix);
        strcpy(id->save_dir, dir);
   }
+  void set_oocparam(const char *prefix, const char *dir){
+       strcpy(id->ooc_prefix, prefix);
+       strcpy(id->ooc_tmpdir, dir);
+  }
   DMUMPS_REAL *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
   DMUMPS_STRUC_C * get_struct(){return id;};
@@ -137,6 +141,10 @@ class ZMUMPS
   void set_saveparam(const char *prefix, const char *dir){
        strcpy(id->save_prefix, prefix);
        strcpy(id->save_dir, dir);
+  }
+  void set_oocparam(const char *prefix, const char *dir){
+       strcpy(id->ooc_prefix, prefix);
+       strcpy(id->ooc_tmpdir, dir);
   }
   ZMUMPS_COMPLEX *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
@@ -197,6 +205,10 @@ class SMUMPS
        strcpy(id->save_prefix, prefix);
        strcpy(id->save_dir, dir);
   }
+  void set_oocparam(const char *prefix, const char *dir){
+       strcpy(id->ooc_prefix, prefix);
+       strcpy(id->ooc_tmpdir, dir);
+  }
   SMUMPS_REAL *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}
   SMUMPS_STRUC_C * get_struct(){return id;};
@@ -255,6 +267,10 @@ class CMUMPS
   void set_saveparam(const char *prefix, const char *dir){
        strcpy(id->save_prefix, prefix);
        strcpy(id->save_dir, dir);
+  }
+  void set_oocparam(const char *prefix, const char *dir){
+       strcpy(id->ooc_prefix, prefix);
+       strcpy(id->ooc_tmpdir, dir);
   }
   CMUMPS_COMPLEX *get_rhs(void){return id->rhs;}    
   int set_ictrl(int i){return id->ICNTL(i);}

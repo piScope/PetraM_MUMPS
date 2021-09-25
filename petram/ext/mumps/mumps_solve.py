@@ -185,6 +185,9 @@ class DMUMPS(object):
     def set_saveparam(self, prefix, dir):
         return _mumps_solve.DMUMPS_set_saveparam(self, prefix, dir)
 
+    def set_oocparam(self, prefix, dir):
+        return _mumps_solve.DMUMPS_set_oocparam(self, prefix, dir)
+
     def get_rhs(self):
         return _mumps_solve.DMUMPS_get_rhs(self)
 
@@ -295,6 +298,9 @@ class ZMUMPS(object):
 
     def set_saveparam(self, prefix, dir):
         return _mumps_solve.ZMUMPS_set_saveparam(self, prefix, dir)
+
+    def set_oocparam(self, prefix, dir):
+        return _mumps_solve.ZMUMPS_set_oocparam(self, prefix, dir)
 
     def get_rhs(self):
         return _mumps_solve.ZMUMPS_get_rhs(self)
@@ -410,6 +416,9 @@ class SMUMPS(object):
     def set_saveparam(self, prefix, dir):
         return _mumps_solve.SMUMPS_set_saveparam(self, prefix, dir)
 
+    def set_oocparam(self, prefix, dir):
+        return _mumps_solve.SMUMPS_set_oocparam(self, prefix, dir)
+
     def get_rhs(self):
         return _mumps_solve.SMUMPS_get_rhs(self)
 
@@ -520,6 +529,9 @@ class CMUMPS(object):
 
     def set_saveparam(self, prefix, dir):
         return _mumps_solve.CMUMPS_set_saveparam(self, prefix, dir)
+
+    def set_oocparam(self, prefix, dir):
+        return _mumps_solve.CMUMPS_set_oocparam(self, prefix, dir)
 
     def get_rhs(self):
         return _mumps_solve.CMUMPS_get_rhs(self)
