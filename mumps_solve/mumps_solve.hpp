@@ -67,6 +67,16 @@ class DMUMPS
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
   }
+  // distributed RHS
+  void set_nrhs_lrhs_irhs_rhs_loc(MUMPS_INT nloc_rhs,
+                                  MUMPS_INT lrhs_loc,
+                                  MUMPS_INT *irhs_loc,
+				  DMUMPS_REAL *rhs_loc){
+    id->nloc_rhs = nloc_rhs;
+    id->lrhs_loc = lrhs_loc;
+    id->irhs_loc = irhs_loc;
+    id->rhs_loc = rhs_loc;    
+  }
   // distributed sol
   void set_sol_loc(DMUMPS_REAL *sol_loc,
 		   MUMPS_INT lsol_loc,
@@ -129,6 +139,16 @@ class ZMUMPS
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
+  }
+  // distributed RHS
+  void set_nrhs_lrhs_irhs_rhs_loc(MUMPS_INT nloc_rhs,
+                                  MUMPS_INT lrhs_loc,
+                                  MUMPS_INT *irhs_loc,
+				  ZMUMPS_COMPLEX *rhs_loc){
+    id->nloc_rhs = nloc_rhs;
+    id->lrhs_loc = lrhs_loc;
+    id->irhs_loc = irhs_loc;
+    id->rhs_loc = rhs_loc;    
   }
   // distributed sol
   void set_sol_loc(ZMUMPS_COMPLEX *sol_loc,
@@ -193,6 +213,16 @@ class SMUMPS
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
   }
+  // distributed RHS
+  void set_nrhs_lrhs_irhs_rhs_loc(MUMPS_INT nloc_rhs,
+                                  MUMPS_INT lrhs_loc,
+                                  MUMPS_INT *irhs_loc,
+				  SMUMPS_REAL *rhs_loc){
+    id->nloc_rhs = nloc_rhs;
+    id->lrhs_loc = lrhs_loc;
+    id->irhs_loc = irhs_loc;
+    id->rhs_loc = rhs_loc;    
+  }
   // distributed sol
   void set_sol_loc(SMUMPS_REAL *sol_loc,
 		   MUMPS_INT lsol_loc,
@@ -255,6 +285,16 @@ class CMUMPS
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
+  }
+  // distributed RHS
+  void set_nrhs_lrhs_irhs_rhs_loc(MUMPS_INT nloc_rhs,
+                                  MUMPS_INT lrhs_loc,
+                                  MUMPS_INT *irhs_loc,
+				  CMUMPS_COMPLEX *rhs_loc){
+    id->nloc_rhs = nloc_rhs;
+    id->lrhs_loc = lrhs_loc;
+    id->irhs_loc = irhs_loc;
+    id->rhs_loc = rhs_loc;    
   }
   // distributed sol
   void set_sol_loc(CMUMPS_COMPLEX *sol_loc,
