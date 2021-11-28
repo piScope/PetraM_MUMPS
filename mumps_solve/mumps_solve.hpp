@@ -63,11 +63,17 @@ class DMUMPS
   void set_a(DMUMPS_REAL *a){id->a = a;}
   void set_a_loc(DMUMPS_REAL *a){id->a_loc = a;}  
   void set_rhs(DMUMPS_REAL *rhs){id->rhs = rhs;}
+  void set_nrhs(MUMPS_INT nrhs){id->nrhs = nrhs;}
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
   }
   // distributed RHS
+  void set_irhs_loc(MUMPS_INT lrhs_loc, MUMPS_INT *irhs_loc)
+  {
+     id->irhs_loc = irhs_loc;
+     id->lrhs_loc = lrhs_loc;
+  }
   void set_nrhs_lrhs_irhs_rhs_loc(MUMPS_INT nloc_rhs,
                                   MUMPS_INT lrhs_loc,
                                   MUMPS_INT *irhs_loc,
@@ -136,11 +142,17 @@ class ZMUMPS
   void set_a(ZMUMPS_COMPLEX *a){id->a = a;}
   void set_a_loc(ZMUMPS_COMPLEX *a){id->a_loc = a;}  
   void set_rhs(ZMUMPS_COMPLEX *rhs){id->rhs = rhs;}
+  void set_nrhs(MUMPS_INT nrhs){id->nrhs = nrhs;}
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
   }
   // distributed RHS
+  void set_irhs_loc(MUMPS_INT lrhs_loc, MUMPS_INT *irhs_loc)
+  {
+     id->irhs_loc = irhs_loc;
+     id->lrhs_loc = lrhs_loc;
+  }
   void set_nrhs_lrhs_irhs_rhs_loc(MUMPS_INT nloc_rhs,
                                   MUMPS_INT lrhs_loc,
                                   MUMPS_INT *irhs_loc,
@@ -148,7 +160,7 @@ class ZMUMPS
     id->nloc_rhs = nloc_rhs;
     id->lrhs_loc = lrhs_loc;
     id->irhs_loc = irhs_loc;
-    id->rhs_loc = rhs_loc;    
+    id->rhs_loc = rhs_loc;
   }
   // distributed sol
   void set_sol_loc(ZMUMPS_COMPLEX *sol_loc,
@@ -209,11 +221,17 @@ class SMUMPS
   void set_a(SMUMPS_REAL *a){id->a = a;}
   void set_a_loc(SMUMPS_REAL *a){id->a_loc = a;}  
   void set_rhs(SMUMPS_REAL *rhs){id->rhs = rhs;}
+  void set_nrhs(MUMPS_INT nrhs){id->nrhs = nrhs;}
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
   }
   // distributed RHS
+  void set_irhs_loc(MUMPS_INT lrhs_loc, MUMPS_INT *irhs_loc)
+  {
+     id->irhs_loc = irhs_loc;
+     id->lrhs_loc = lrhs_loc;
+  }
   void set_nrhs_lrhs_irhs_rhs_loc(MUMPS_INT nloc_rhs,
                                   MUMPS_INT lrhs_loc,
                                   MUMPS_INT *irhs_loc,
@@ -276,17 +294,23 @@ class CMUMPS
   // NZ
   void set_nz32(MUMPS_INT nz){id->nz = nz;}
   void set_nz32_loc(MUMPS_INT nz){id->nz_loc = nz;}
-  void set_nz(int64_t nnz){id->nnz = nnz;}    
+  void set_nz(int64_t nnz){id->nnz = nnz;}
   void set_nz_loc(int64_t nnz){id->nnz_loc = nnz;}    
   
   void set_a(CMUMPS_COMPLEX *a){id->a = a;}
   void set_a_loc(CMUMPS_COMPLEX *a){id->a_loc = a;}  
   void set_rhs(CMUMPS_COMPLEX *rhs){id->rhs = rhs;}
+  void set_nrhs(MUMPS_INT nrhs){id->nrhs = nrhs;}
   void set_lrhs_nrhs(MUMPS_INT lrhs, MUMPS_INT nrhs){
        id->lrhs = lrhs; 
        id->nrhs = nrhs;
   }
   // distributed RHS
+  void set_irhs_loc(MUMPS_INT lrhs_loc, MUMPS_INT *irhs_loc)
+  {
+     id->irhs_loc = irhs_loc;
+     id->lrhs_loc = lrhs_loc;
+  }
   void set_nrhs_lrhs_irhs_rhs_loc(MUMPS_INT nloc_rhs,
                                   MUMPS_INT lrhs_loc,
                                   MUMPS_INT *irhs_loc,

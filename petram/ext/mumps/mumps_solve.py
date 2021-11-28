@@ -176,8 +176,14 @@ class DMUMPS(object):
     def set_rhs(self, rhs):
         return _mumps_solve.DMUMPS_set_rhs(self, rhs)
 
+    def set_nrhs(self, nrhs):
+        return _mumps_solve.DMUMPS_set_nrhs(self, nrhs)
+
     def set_lrhs_nrhs(self, lrhs, nrhs):
         return _mumps_solve.DMUMPS_set_lrhs_nrhs(self, lrhs, nrhs)
+
+    def set_irhs_loc(self, lrhs_loc, irhs_loc):
+        return _mumps_solve.DMUMPS_set_irhs_loc(self, lrhs_loc, irhs_loc)
 
     def set_nrhs_lrhs_irhs_rhs_loc(self, nloc_rhs, lrhs_loc, irhs_loc, rhs_loc):
         return _mumps_solve.DMUMPS_set_nrhs_lrhs_irhs_rhs_loc(self, nloc_rhs, lrhs_loc, irhs_loc, rhs_loc)
@@ -293,8 +299,14 @@ class ZMUMPS(object):
     def set_rhs(self, rhs):
         return _mumps_solve.ZMUMPS_set_rhs(self, rhs)
 
+    def set_nrhs(self, nrhs):
+        return _mumps_solve.ZMUMPS_set_nrhs(self, nrhs)
+
     def set_lrhs_nrhs(self, lrhs, nrhs):
         return _mumps_solve.ZMUMPS_set_lrhs_nrhs(self, lrhs, nrhs)
+
+    def set_irhs_loc(self, lrhs_loc, irhs_loc):
+        return _mumps_solve.ZMUMPS_set_irhs_loc(self, lrhs_loc, irhs_loc)
 
     def set_nrhs_lrhs_irhs_rhs_loc(self, nloc_rhs, lrhs_loc, irhs_loc, rhs_loc):
         return _mumps_solve.ZMUMPS_set_nrhs_lrhs_irhs_rhs_loc(self, nloc_rhs, lrhs_loc, irhs_loc, rhs_loc)
@@ -413,8 +425,14 @@ class SMUMPS(object):
     def set_rhs(self, rhs):
         return _mumps_solve.SMUMPS_set_rhs(self, rhs)
 
+    def set_nrhs(self, nrhs):
+        return _mumps_solve.SMUMPS_set_nrhs(self, nrhs)
+
     def set_lrhs_nrhs(self, lrhs, nrhs):
         return _mumps_solve.SMUMPS_set_lrhs_nrhs(self, lrhs, nrhs)
+
+    def set_irhs_loc(self, lrhs_loc, irhs_loc):
+        return _mumps_solve.SMUMPS_set_irhs_loc(self, lrhs_loc, irhs_loc)
 
     def set_nrhs_lrhs_irhs_rhs_loc(self, nloc_rhs, lrhs_loc, irhs_loc, rhs_loc):
         return _mumps_solve.SMUMPS_set_nrhs_lrhs_irhs_rhs_loc(self, nloc_rhs, lrhs_loc, irhs_loc, rhs_loc)
@@ -530,8 +548,14 @@ class CMUMPS(object):
     def set_rhs(self, rhs):
         return _mumps_solve.CMUMPS_set_rhs(self, rhs)
 
+    def set_nrhs(self, nrhs):
+        return _mumps_solve.CMUMPS_set_nrhs(self, nrhs)
+
     def set_lrhs_nrhs(self, lrhs, nrhs):
         return _mumps_solve.CMUMPS_set_lrhs_nrhs(self, lrhs, nrhs)
+
+    def set_irhs_loc(self, lrhs_loc, irhs_loc):
+        return _mumps_solve.CMUMPS_set_irhs_loc(self, lrhs_loc, irhs_loc)
 
     def set_nrhs_lrhs_irhs_rhs_loc(self, nloc_rhs, lrhs_loc, irhs_loc, rhs_loc):
         return _mumps_solve.CMUMPS_set_nrhs_lrhs_irhs_rhs_loc(self, nloc_rhs, lrhs_loc, irhs_loc, rhs_loc)
