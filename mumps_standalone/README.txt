@@ -16,9 +16,13 @@ BUILD STEP)
 
    $ make
 
-z_solvetest
-   cd dataset_z
+z_solvetest/c_solvetest: load matrix and rhs from file and solve
+   * matrix is distirubted
+   * rhs is host
+
+   cd dataset_complex
    ../z_solvetest
+   ../c_solvetest   
 
 
 
