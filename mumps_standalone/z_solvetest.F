@@ -6,6 +6,7 @@ C
       INCLUDE 'mpif.h'
       INCLUDE 'zmumps_struc.h'
       TYPE (ZMUMPS_STRUC) mumps_par
+      LOGICAL LOAD_RHS, FILE_EXIST1, FILE_EXIST2      
       INTEGER IERR, I
       INTEGER(8) I8
       CHARACTER(LEN=13) FILENAME
@@ -33,7 +34,20 @@ C  for L U factorization (sym = 0, with working host)
       
 C     Read file (filename is like matrxi.000000)
       WRITE(FILENAME, "(A7, I6.6)") "matrix.", mumps_par%MYID
-      write(*,*) "reading:", FILENAME
+
+C     Check if input file exist
+      INQUIRE(FILE=FILENAME, EXIST=FILE_EXIST1)
+      INQUIRE(FILE= "rhs_0.000000", EXIST=FILE_EXIST2)
+      
+      IF (FILE_EXIST1) THEN
+         write(*,*) "reading:", FILENAME
+      ENDIF
+      IF (FILE_EXIST2) THEN
+         LOAD_RHS = .TRUE.
+      ELSE
+         LOAD_RHS = .FALSE.
+      ENDIF
+      
 
 C     Find Number of NNZ      
       OPEN (1, file = FILENAME)
@@ -60,8 +74,9 @@ c     mumps_par%ICNTL(29) = 2
 
       COUNT = 1
       ASIZE = 0
-      OPEN (1, file = FILENAME)
-      DO
+      IF (NNZ_LOCAL .GT. 0) THEN      
+       OPEN (1, file = FILENAME)
+       DO
          READ (1,"(A)", END=20) LINE
          D1 = 1
          D2 = 1
@@ -121,7 +136,8 @@ C         IF (COUNT .EQ. 30) THEN
 C            EXIT
 C         ENDIF
          COUNT = COUNT + 1      
-      END DO
+       END DO
+      END IF
  20   CLOSE (1)
       
 C     SIZE of MATRIX
@@ -136,8 +152,9 @@ C     SIZE of MATRIX
 
       IF ( mumps_par%MYID .eq. 0 ) THEN
          ALLOCATE( mumps_par%RHS ( mumps_par%N  ) )
-         OPEN (1, file = "rhs_0.000000") 
-         DO
+         IF (LOAD_RHS) THEN         
+          OPEN (1, file = "rhs_0.000000") 
+          DO
             READ (1,"(A)", END=30) LINE
             D1 = 1
             D2 = 1
@@ -168,7 +185,8 @@ C     SIZE of MATRIX
 C            IF ((RPART .NE. 0) .OR. (IPART .NE. 0)) THEN
 C               write(*,*)  COL, mumps_par%RHS(COL)
 C            ENDIF
-         END DO   
+          END DO
+         END IF
  30      CLOSE (1)
       END IF
       

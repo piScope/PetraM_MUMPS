@@ -6,7 +6,7 @@ C
       INCLUDE 'mpif.h'
       INCLUDE 'cmumps_struc.h'
       TYPE (CMUMPS_STRUC) mumps_par
-      LOGICAL LOAD_RHS
+      LOGICAL LOAD_RHS, FILE_EXIST1, FILE_EXIST2
       INTEGER IERR, I
       INTEGER(8) I8
       CHARACTER(LEN=13) FILENAME
@@ -15,7 +15,7 @@ C
       INTEGER(8) NNZ_LOCAL, NNZ_TOTAL, COUNT, ASIZE, ASIZE_LOCAL
       INTEGER(8) D1, D2, ROW, COL, STAT
       REAL*4 RPART, IPART
-      
+
       CALL MPI_INIT(IERR)
 C Define a communicator for the package.
       mumps_par%COMM = MPI_COMM_WORLD
@@ -32,16 +32,34 @@ C  for L U factorization (sym = 0, with working host)
        GOTO 500
       END IF
       
+
 C     Read file (filename is like matrxi.000000)
       WRITE(FILENAME, "(A7, I6.6)") "matrix.", mumps_par%MYID
-      write(*,*) "reading:", FILENAME
 
-C     Find Number of NNZ      
-      OPEN (1, file = FILENAME)
-      DO
-         READ (1,*, END=10)
-         NNZ_LOCAL = NNZ_LOCAL + 1
-      END DO
+C     Check if input file exist
+      INQUIRE(FILE=FILENAME, EXIST=FILE_EXIST1)
+      INQUIRE(FILE= "rhs_0.000000", EXIST=FILE_EXIST2)
+      
+      IF (FILE_EXIST1) THEN
+         write(*,*) "reading:", FILENAME
+      ENDIF
+      IF (FILE_EXIST2) THEN
+         LOAD_RHS = .TRUE.
+      ELSE
+         LOAD_RHS = .FALSE.
+      ENDIF
+      
+C     Find Number of NNZ
+      IF (FILE_EXIST1) THEN
+         OPEN (1, file = FILENAME)
+         DO
+            READ (1,*, END=10)
+            NNZ_LOCAL = NNZ_LOCAL + 1
+         END DO
+      ELSE
+         NNZ_LOCAL = 0
+      ENDIF
+         
  10   CLOSE (1)
       mumps_par%NNZ_loc = NNZ_LOCAL
       
@@ -51,8 +69,8 @@ C     Total NNZ (not used as input)
       
 C     Distributed matrix, parmetis      
       mumps_par%ICNTL(18) = 3
-c      mumps_par%ICNTL(28) = 2
-c     mumps_par%ICNTL(29) = 2
+      mumps_par%ICNTL(28) = 2
+      mumps_par%ICNTL(29) = 2
       mumps_par%ICNTL(20) = 0
 
       ALLOCATE( mumps_par%IRN_loc( mumps_par%NNZ_loc ) )
@@ -61,6 +79,7 @@ c     mumps_par%ICNTL(29) = 2
 
       COUNT = 1
       ASIZE = 0
+      IF (NNZ_LOCAL .GT. 0) THEN
       OPEN (1, file = FILENAME)
       DO
          READ (1,"(A)", END=20) LINE
@@ -123,6 +142,7 @@ C            EXIT
 C         ENDIF
          COUNT = COUNT + 1      
       END DO
+      END IF
  20   CLOSE (1)
       
 C     SIZE of MATRIX
@@ -134,7 +154,7 @@ C     SIZE of MATRIX
       ENDIF
       
       mumps_par%N = ASIZE
-      LOAD_RHS = .TRUE.
+
       IF ( mumps_par%MYID .eq. 0 ) THEN
          ALLOCATE( mumps_par%RHS ( mumps_par%N  ) )
          IF (LOAD_RHS) THEN
@@ -172,7 +192,7 @@ C     SIZE of MATRIX
             DO COL = 1,  mumps_par%N 
              mumps_par%RHS(COL) = cmplx(1.0, 1.0)
             END DO
-         ENDIF
+         END IF
  30      CLOSE (1)
       END IF
       
