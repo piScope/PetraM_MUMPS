@@ -64,8 +64,12 @@ C     Total NNZ (not used as input)
       
 C     Distributed matrix, parmetis      
       mumps_par%ICNTL(18) = 3
-c      mumps_par%ICNTL(28) = 2
-c     mumps_par%ICNTL(29) = 2
+C     ParMETIS (28 = 2, 29 = 2)
+      mumps_par%ICNTL(28) = 2
+      mumps_par%ICNTL(29) = 2
+C     OUT-OF-CORE 22 = 1      
+      mumps_par%ICNTL(22) = 1
+C     Central RHS 20 = 0
       mumps_par%ICNTL(20) = 0
 
       ALLOCATE( mumps_par%IRN_loc( mumps_par%NNZ_loc ) )
@@ -152,6 +156,7 @@ C     SIZE of MATRIX
 
       IF ( mumps_par%MYID .eq. 0 ) THEN
          ALLOCATE( mumps_par%RHS ( mumps_par%N  ) )
+
          IF (LOAD_RHS) THEN         
           OPEN (1, file = "rhs_0.000000") 
           DO

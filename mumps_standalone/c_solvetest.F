@@ -69,8 +69,12 @@ C     Total NNZ (not used as input)
       
 C     Distributed matrix, parmetis      
       mumps_par%ICNTL(18) = 3
+C     ParMETIS (28 = 2, 29 = 2)
       mumps_par%ICNTL(28) = 2
       mumps_par%ICNTL(29) = 2
+C     OUT-OF-CORE 22 = 1      
+      mumps_par%ICNTL(22) = 1
+C     Central RHS 20 = 0
       mumps_par%ICNTL(20) = 0
 
       ALLOCATE( mumps_par%IRN_loc( mumps_par%NNZ_loc ) )
