@@ -6,14 +6,14 @@ topdir = ../../MUMPS_5.4.1
 mumpsdir = ../../MUMPS_5.4.1
 libdir = $(mumpsdir)/lib
 
-default: z
+default: z c
 
 .PHONY: default all s d c z multi clean
 .SECONDEXPANSION:
 
 all:	c z s d multi
 
-c:	
+c:	c_solvetest
 z:	z_solvetest
 s:	
 d:	
@@ -30,6 +30,8 @@ LIBCMUMPS = $(libdir)/libcmumps$(PLAT)$(LIBEXT) $(LIBMUMPS_COMMON)
 
 z_solvetest:  $(LIBSMUMPS)  $$@.o
 	$(FL) -o $@ $(OPTL) z_solvetest.o  $(LIBZMUMPS) $(LORDERINGS) $(LIBS) $(LIBBLAS) $(LIBOTHERS)
+c_solvetest:  $(LIBSMUMPS)  $$@.o
+	$(FL) -o $@ $(OPTL) c_solvetest.o  $(LIBCMUMPS) $(LORDERINGS) $(LIBS) $(LIBBLAS) $(LIBOTHERS)
 
 .SUFFIXES: .c .F .o
 .F.o:
