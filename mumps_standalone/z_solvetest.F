@@ -50,9 +50,9 @@ C     Total NNZ (not used as input)
       
 C     Distributed matrix, parmetis      
       mumps_par%ICNTL(18) = 3
-c      mumps_par%ICNTL(28) = 2
-c     mumps_par%ICNTL(29) = 2
-      mumps_par%ICNTL(20) = 0
+      mumps_par%ICNTL(28) = 2
+      mumps_par%ICNTL(29) = 2
+c      mumps_par%ICNTL(20) = 0
 
       ALLOCATE( mumps_par%IRN_loc( mumps_par%NNZ_loc ) )
       ALLOCATE( mumps_par%JCN_loc ( mumps_par%NNZ_loc ) )
@@ -136,38 +136,39 @@ C     SIZE of MATRIX
 
       IF ( mumps_par%MYID .eq. 0 ) THEN
          ALLOCATE( mumps_par%RHS ( mumps_par%N  ) )
-         OPEN (1, file = "rhs_0.000000") 
-         DO
-            READ (1,"(A)", END=30) LINE
-            D1 = 1
-            D2 = 1
-            DO 
-               IF (LINE(D2:D2) .EQ. " ")  THEN
-                  COL_T = LINE(D1:D2-1)
-                  EXIT
-               END IF
-               D2 = D2 + 1
-            END DO
-            D1 = D2+1
-            D2 = D2+1
-            DO 
-               IF (LINE(D2:D2) .EQ. " ")  THEN
-                  REAL_T = LINE(D1:D2-1)
-                  EXIT
-               END IF
-               D2 = D2 + 1
-            END DO
-            D2 = D2+1
-            IMAG_T = LINE(D2:)
-            
-            READ(COL_T, *, iostat=STAT)  COL                        
-            READ(REAL_T, *, iostat=STAT) RPART
-            READ(IMAG_T, *, iostat=STAT) IPART
-            COL = COL + 1
+C         OPEN (1, file = "rhs_0.000000") 
+C         DO
+C            READ (1,"(A)", END=30) LINE
+C            D1 = 1
+C            D2 = 1
+C            DO 
+C               IF (LINE(D2:D2) .EQ. " ")  THEN
+C                  COL_T = LINE(D1:D2-1)
+C                  EXIT
+C               END IF
+C               D2 = D2 + 1
+C            END DO
+C            D1 = D2+1
+C            D2 = D2+1
+C            DO 
+C               IF (LINE(D2:D2) .EQ. " ")  THEN
+C                  REAL_T = LINE(D1:D2-1)
+C                  EXIT
+C               END IF
+C               D2 = D2 + 1
+C            END DO
+C            D2 = D2+1
+C            IMAG_T = LINE(D2:)
+C            READ(COL_T, *, iostat=STAT)  COL                        
+C            READ(REAL_T, *, iostat=STAT) RPART
+C            READ(IMAG_T, *, iostat=STAT) IPART
+C            COL = COL + 1
+C            mumps_par%RHS(COL) = cmplx(RPART, IPART)
+         
+         DO COL = 1, mumps_par%N 
+            RPART = 1
+            IPART = 1
             mumps_par%RHS(COL) = cmplx(RPART, IPART)
-C            IF ((RPART .NE. 0) .OR. (IPART .NE. 0)) THEN
-C               write(*,*)  COL, mumps_par%RHS(COL)
-C            ENDIF
          END DO   
  30      CLOSE (1)
       END IF
