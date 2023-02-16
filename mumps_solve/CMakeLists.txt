@@ -95,7 +95,7 @@ if (USE_METIS)
        ${PARMETIS_STATIC}
        ${SHARED_SC_LINK_FLAGS_1}
        ${METIS_STATIC}
-       ${SHARED_SC_LINK_FLAGS_1}
+       #${SHARED_SC_LINK_FLAGS_1}
        #${GKLIB_STATIC}
        ${SHARED_SC_LINK_FLAGS_2})
 endif()
