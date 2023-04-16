@@ -79,7 +79,8 @@ set( SCOTCHEE_STATIC ${SCOTCH_LINK_DIR}/libscotcherrexit.a )
 set( PTSCOTCH_STATIC ${SCOTCH_LINK_DIR}/libptscotch.a )
 set( PTSCOTCHE_STATIC ${SCOTCH_LINK_DIR}/libptscotcherr.a )
 set( PTSCOTCHEE_STATIC ${SCOTCH_LINK_DIR}/libptscotcherrexit.a )
-
+set( ESMUMPS_STATIC ${SCOTCH_LINK_DIR}/libesmumps.a )
+set( PTESMUMPS_STATIC ${SCOTCH_LINK_DIR}/libptesmumps.a )
 
 #set( GKLIB_STATIC ${METIS_LINK_DIR}/libGKlib.a )
 
@@ -111,9 +112,11 @@ endif()
 list(APPEND SCOTCH_LIBRARIES "")
 if (USE_SCOTCH)
   list(APPEND SCOTCH_LIBRARIES
+    ${ESMUMPS_STATIC}    
     ${SCOTCH_STATIC}
     ${SCOTCHE_STATIC}
-    ${SCOTCHEE_STATIC}    
+    ${SCOTCHEE_STATIC}
+    ${PTESMUMPS_STATIC}        
     ${PTSCOTCH_STATIC}
     ${PTSCOTCHE_STATIC}
     ${PTSCOTCHEE_STATIC})
