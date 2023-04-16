@@ -96,7 +96,8 @@ if (USE_SCOTCH)
     -L${SCOTCH_LINK_DIR}
     "ptesmumps"
     "ptscotch"
-    "ptscotcherr")
+    "ptscotcherr",
+    "ptscotcherrexit")
 endif()
 
 # make target
