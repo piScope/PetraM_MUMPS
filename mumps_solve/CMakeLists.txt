@@ -75,10 +75,10 @@ set( METIS_STATIC ${METIS_LINK_DIR}/libmetis.a )
 set( PARMETIS_STATIC ${METIS_LINK_DIR}/libparmetis.a )
 set( SCOTCH_STATIC ${SCOTCH_LINK_DIR}/libscotch.a )
 set( SCOTCHE_STATIC ${SCOTCH_LINK_DIR}/libscotcherr.a )
-set( SCOTCHEE_STATIC ${SCOTCH_LINK_DIR}/libscotcherrext.a )
+set( SCOTCHEE_STATIC ${SCOTCH_LINK_DIR}/libscotcherrexit.a )
 set( PTSCOTCH_STATIC ${SCOTCH_LINK_DIR}/libptscotch.a )
 set( PTSCOTCHE_STATIC ${SCOTCH_LINK_DIR}/libptscotcherr.a )
-set( PTSCOTCHEE_STATIC ${SCOTCH_LINK_DIR}/libptscotcherrext.a )
+set( PTSCOTCHEE_STATIC ${SCOTCH_LINK_DIR}/libptscotcherrexit.a )
 
 
 #set( GKLIB_STATIC ${METIS_LINK_DIR}/libGKlib.a )
