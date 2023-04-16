@@ -116,7 +116,7 @@ if (USE_SCOTCH)
     ${SCOTCHEE_STATIC}    
     ${PTSCOTCH_STATIC}
     ${PTSCOTCHE_STATIC}
-    ${PTSCOTCHEE_STATIC}    
+    ${PTSCOTCHEE_STATIC})
 endif()
 
 # make target
