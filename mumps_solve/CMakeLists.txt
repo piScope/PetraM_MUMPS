@@ -18,7 +18,6 @@ option(USE_SCOTCH "Link with Scotch/PT-Scotch library" ON)
 
 if(NOT METIS_LINK_DIR)
   set(METIS_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
-
 endif()
 if(NOT PARMETIS_LINK_DIR)
   set(PARMETIS_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
@@ -74,6 +73,14 @@ set( CMUMPS_STATIC ${MUMPS_LINK_DIR}/libcmumps.a )
 set( PORD_STATIC ${MUMPS_LINK_DIR}/libpord.a )
 set( METIS_STATIC ${METIS_LINK_DIR}/libmetis.a )
 set( PARMETIS_STATIC ${METIS_LINK_DIR}/libparmetis.a )
+set( SCOTCH_STATIC ${SCOTCH_LINK_DIR}/libscotch.a )
+set( SCOTCHE_STATIC ${SCOTCH_LINK_DIR}/libscotcherr.a )
+set( SCOTCHEE_STATIC ${SCOTCH_LINK_DIR}/libscotcherrext.a )
+set( PTSCOTCH_STATIC ${SCOTCH_LINK_DIR}/libptscotch.a )
+set( PTSCOTCHE_STATIC ${SCOTCH_LINK_DIR}/libptscotcherr.a )
+set( PTSCOTCHEE_STATIC ${SCOTCH_LINK_DIR}/libptscotcherrext.a )
+
+
 #set( GKLIB_STATIC ${METIS_LINK_DIR}/libGKlib.a )
 
 set( MUMPS_SOLVE_H ${CMAKE_CURRENT_SOURCE_DIR}/mumps_solve.hpp )
@@ -104,11 +111,12 @@ endif()
 list(APPEND SCOTCH_LIBRARIES "")
 if (USE_SCOTCH)
   list(APPEND SCOTCH_LIBRARIES
-    -L${SCOTCH_LINK_DIR}
-    "ptesmumps"
-    "ptscotch"
-    "ptscotcherr"
-    "ptscotcherrexit")
+    ${SCOTCH_STATIC}
+    ${SCOTCHE_STATIC}
+    ${SCOTCHEE_STATIC}    
+    ${PTSCOTCH_STATIC}
+    ${PTSCOTCHE_STATIC}
+    ${PTSCOTCHEE_STATIC}    
 endif()
 
 # make target
