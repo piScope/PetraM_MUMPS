@@ -72,6 +72,9 @@ set( SMUMPS_STATIC ${MUMPS_LINK_DIR}/libsmumps.a )
 set( DMUMPS_STATIC ${MUMPS_LINK_DIR}/libdmumps.a )
 set( CMUMPS_STATIC ${MUMPS_LINK_DIR}/libcmumps.a )
 set( PORD_STATIC ${MUMPS_LINK_DIR}/libpord.a )
+set( METIS_STATIC ${METIS_LINK_DIR}/libmetis.a )
+set( PARMETIS_STATIC ${METIS_LINK_DIR}/libparmetis.a )
+#set( GKLIB_STATIC ${METIS_LINK_DIR}/libGKlib.a )
 
 set( MUMPS_SOLVE_H ${CMAKE_CURRENT_SOURCE_DIR}/mumps_solve.hpp )
 set( IFLAG " -I")
@@ -82,11 +85,19 @@ message(STATUS ${MUMPS_INCLUDE_DIR})
 # METIS_LIBRARIES
 list(APPEND METIS_LIBRARIES "")
 if (USE_METIS)
+  #list(APPEND METIS_LIBRARIES
+  #   -L${PARMETIS_LINK_DIR}
+  #   "parmetis"
+  #   -L${METIS_LINK_DIR}
+  #   "metis")
   list(APPEND METIS_LIBRARIES
-     -L${PARMETIS_LINK_DIR}
-     "parmetis"
-     -L${METIS_LINK_DIR}
-     "metis")
+       ${SHARED_SC_LINK_FLAGS_1}
+       ${PARMETIS_STATIC}
+       ${SHARED_SC_LINK_FLAGS_1}
+       ${METIS_STATIC}
+       #${SHARED_SC_LINK_FLAGS_1}
+       #${GKLIB_STATIC}
+       ${SHARED_SC_LINK_FLAGS_2})
 endif()
  
 # SCOTCH_LIBRARIES
@@ -118,7 +129,7 @@ target_link_libraries(mumps_solve
                             ${PORD_STATIC}
                             ${SHARED_SC_LINK_FLAGS_2}
                             ${SYMBOL_FLAG1}
-                            ${SYMBOL_FLAG2}			    
+                            ${SYMBOL_FLAG2}
 			    ${METIS_LIBRARIES}
 			    ${SCOTCH_LIBRARIES}
    		            ${LAPACK_FLAGS}			    
