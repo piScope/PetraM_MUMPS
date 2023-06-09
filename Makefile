@@ -51,7 +51,7 @@ so:
 install:
 	mkdir -p $(PREFIX)
 	for dir in $(PREFIX); do mkdir -p $(PREFIX)/$$dir; done
-	$(PYTHON) setup.py install --prefix=$(PREFIX)
+	$(PYTHON) -m pip install ./ --prefix=$(PREFIX)
 clean:
 	$(MAKE) -C petram/ext clean
 	rm -rf build/*
