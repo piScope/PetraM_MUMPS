@@ -64,11 +64,13 @@ for lib in lib_list:
         libraries.append(eval(lib+'lib'))
         
 mkl = os.getenv("MKL")
+ompflag = os.getenv("OMPFLAG")
 
+print("ompflag", ompflag)
 ext_modules = []
 for kk, name in enumerate(modules):
-   extra_link_args = []
-   #extra_link_args = [sdir + name+'.a']
+   extra_link_args = [ompflag]
+
    '''
    if kk == 0:
        extra_link_args = mumps_link_args + [sdir + name+'.a']
@@ -98,7 +100,7 @@ for kk, name in enumerate(modules):
 
 setup (name = 'PetraM_MUMPS',
        url='https://github.com/piScope/PetraM',       
-       version = '1.1.6',
+       version = '1.1.7',
        description = 'PetraM MUMPS interface', 
        long_description=long_description,       
        author      = "S. Shiraiwa",
