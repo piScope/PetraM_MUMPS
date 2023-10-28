@@ -100,7 +100,7 @@ for kk, name in enumerate(modules):
 
 setup (name = 'PetraM_MUMPS',
        url='https://github.com/piScope/PetraM',       
-       version = '1.1.7',
+       version = '1.1.8',
        description = 'PetraM MUMPS interface', 
        long_description=long_description,       
        author      = "S. Shiraiwa",
