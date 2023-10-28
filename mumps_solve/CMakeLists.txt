@@ -143,10 +143,10 @@ target_link_libraries(mumps_solve
                             ${SYMBOL_FLAG2}
 			    ${METIS_LIBRARIES}
 			    ${SCOTCH_LIBRARIES}
-   		            ${LAPACK_FLAGS}			    
+   		            ${SCALAPACK_FLAGS}
+   		            ${LAPACK_FLAGS}
 			    ${MPI_C_LIBRARIES}
                             ${OpenMP_LINK_FLAG})
-
 			    
 set_target_properties(mumps_solve PROPERTIES 
                       COMPILE_FLAGS ${CMP_FLAG}
