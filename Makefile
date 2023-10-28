@@ -4,7 +4,7 @@
 ##
 MAKE=$(shell which make)
 PYTHON ?= $(shell which python)
-PYTHONCONFIG ?= $(shell which python-config)
+PYTHONCONFIG ?= $(shell which python3-config)
 CC ?= $(shell which gcc)
 UNAME := $(shell uname)
 
