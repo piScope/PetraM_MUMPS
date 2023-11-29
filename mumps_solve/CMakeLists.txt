@@ -26,9 +26,10 @@ if(NOT SCOTCH_LINK_DIR)
     set(SCOTCH_LINK_DIR ${CMAKE_INSTALL_PREFIX}/lib)
 endif()
   
-set(CMAKE_INSTALL_RPATH ${METIS_LINK_DIR}
-                        ${PARMETIS_LINK_DIR}
-                        ${SCOTCH_LINK_DIR})
+#set(CMAKE_INSTALL_RPATH ${METIS_LINK_DIR}
+#                        ${PARMETIS_LINK_DIR}
+#                        ${SCOTCH_LINK_DIR})
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 enable_language(Fortran)
 
